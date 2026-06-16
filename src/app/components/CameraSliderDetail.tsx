@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Copy } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import fig1 from '../../imports/Figure_1_Motorized_Camera_Slider_Prototype.png';
-import fig2 from '../../imports/Figure_2_Electronics_Enclosure_Under_Sliding_Platform.png';
-import fig3 from '../../imports/Figure_3_NEMA_17_Drive_System_Detail.png';
-import fig4 from '../../imports/Figure_4_Camera_Carriage_and_Belt_Attachment.png';
-import fig5 from '../../imports/Figure_5_Arduino-Based_Slider_Control_Circuit.png';
-import fig6 from '../../imports/Figure_6_Motorized_Camera_Slider_in_Operation.png';
+const BASE = "https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com";
+const fig1 = `${BASE}/Figure_1_Motorized_Camera_Slider_Prototype.png`;
+const fig2 = `${BASE}/Figure_2_Electronics_Enclosure_Under_Sliding_Platform.png`;
+const fig3 = `${BASE}/Figure_3_NEMA_17_Drive_System_Detail.png`;
+const fig4 = `${BASE}/Figure_4_Camera_Carriage_and_Belt_Attachment.png`;
+const fig5 = `${BASE}/Figure_5_Arduino-Based_Slider_Control_Circuit.png`;
+const fig6 = `${BASE}/Figure_6_Motorized_Camera_Slider_in_Operation.png`;
 
 export function CameraSliderDetail() {
   const [copied, setCopied] = useState(false);

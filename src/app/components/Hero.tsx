@@ -9,7 +9,7 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-import profilePhoto from '../../imports/Alasya.jpg';
+const profilePhoto = "https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/Alasya.jpg";
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -218,7 +218,7 @@ export function Hero() {
               View My Work
             </button>
             <a
-              href="/portfolio/PHILIP_OLEMBO_CV.pdf"
+              href="https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/PHILIP_OLEMBO_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{

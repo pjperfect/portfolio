@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn, Play } from "lucide-react";
-import img1 from "../../imports/HBD-SIS-RITA-CEKZ-LOGISTICS.jpg";
-import img2 from "../../imports/HBD-DCN-LOTAN-CEKZ-LOVEWORLD-SATjpg.jpg";
-import img3 from "../../imports/HBD-DCN-LOTAN-CEKZ-LOGISTICS-2.jpg";
-import img4 from "../../imports/HBD-SIS-SHIREEN-CEKZ-LOGISTICS.jpg";
-import img5 from "../../imports/HBD-PST-MATILDA-CEKZ-LOGISTICS.jpg";
-import img6 from "../../imports/HBD-PST-NATHANIA-CEKZ-LOGISTICS.jpg";
-import img7 from "../../imports/HBD-PST-NATHANIA-CEKZ-SPECIAL-DUTY.jpg";
-import img8 from "../../imports/HBD-BABY-KEZA-SALAPEI-CEKZ-LOGISTICS.jpg";
-import img9 from "../../imports/HBD-BRO-SENTRIX-LTM_RADIO.jpg";
-import img10 from "../../imports/HBD-TRACY-ANYANGO-FROM-SIS-MAUREEN.jpg";
-import img11 from "../../imports/HAPPY-WEDDING-ANNIVERSARY.jpg";
-import video1 from "../../imports/SUNDAY_SERVICE_WITH_PASTOR_OSAGIE.mp4";
-import video2 from "../../imports/STAY_TUNED.mp4";
+const BASE = "https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com";
+const img1 = `${BASE}/HBD-SIS-RITA-CEKZ-LOGISTICS.jpg`;
+const img2 = `${BASE}/HBD-DCN-LOTAN-CEKZ-LOVEWORLD-SATjpg.jpg`;
+const img3 = `${BASE}/HBD-DCN-LOTAN-CEKZ-LOGISTICS-2.jpg`;
+const img4 = `${BASE}/HBD-SIS-SHIREEN-CEKZ-LOGISTICS.jpg`;
+const img5 = `${BASE}/HBD-PST-MATILDA-CEKZ-LOGISTICS.jpg`;
+const img6 = `${BASE}/HBD-PST-NATHANIA-CEKZ-LOGISTICS.jpg`;
+const img7 = `${BASE}/HBD-PST-NATHANIA-CEKZ-SPECIAL-DUTY.jpg`;
+const img8 = `${BASE}/HBD-BABY-KEZA-SALAPEI-CEKZ-LOGISTICS.jpg`;
+const img9 = `${BASE}/HBD-BRO-SENTRIX-LTM_RADIO.jpg`;
+const img10 = `${BASE}/HBD-TRACY-ANYANGO-FROM-SIS-MAUREEN.jpg`;
+const img11 = `${BASE}/HAPPY-WEDDING-ANNIVERSARY.jpg`;
+const video1 = `${BASE}/SUNDAY_SERVICE_WITH_PASTOR_OSAGIE.mp4`;
+const video2 = `${BASE}/STAY_TUNED.mp4`;
 
 type Category = "All" | "Fliers" | "Logos & Branding" | "Video & Motion" | "Live Streams";
 
