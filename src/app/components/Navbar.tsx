@@ -107,7 +107,7 @@ export function Navbar() {
               </button>
             ))}
             <a
-              href="/PHILIP_OLEMBO_CV.pdf"
+              href="/portfolio/PHILIP_OLEMBO_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -208,7 +208,7 @@ export function Navbar() {
           </button>
         ))}
         <a
-          href="/PHILIP_OLEMBO_CV.pdf"
+          href="/portfolio/PHILIP_OLEMBO_CV.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{
