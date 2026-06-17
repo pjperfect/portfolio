@@ -163,7 +163,7 @@ export function Navbar() {
           top: 0,
           right: 0,
           bottom: 0,
-          width: 280,
+          width: '100%',
           backgroundColor: '#1A2B4A',
           zIndex: 100,
           transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
