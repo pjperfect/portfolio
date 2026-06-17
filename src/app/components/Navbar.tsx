@@ -151,7 +151,30 @@ export function Navbar() {
             }}
             className="show-mobile"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            <div style={{ position: 'relative', width: 24, height: 24 }}>
+              <Menu
+                size={24}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  transition: 'opacity 0.2s, transform 0.2s',
+                  opacity: menuOpen ? 0 : 1,
+                  transform: menuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                }}
+              />
+              <X
+                size={24}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  transition: 'opacity 0.2s, transform 0.2s',
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? 'rotate(0deg)' : 'rotate(-90deg)',
+                }}
+              />
+            </div>
           </button>
         </div>
       </nav>
@@ -163,7 +186,7 @@ export function Navbar() {
           top: 0,
           right: 0,
           bottom: 0,
-          width: '100%',
+          width: '80%',
           backgroundColor: '#1A2B4A',
           zIndex: 100,
           transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
