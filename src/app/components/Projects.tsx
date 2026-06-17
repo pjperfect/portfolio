@@ -210,6 +210,29 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
+                  {p.detailPage && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        color: '#0D7377',
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        marginTop: 'auto',
+                      }}
+                      className="view-case-study"
+                    >
+                      <span>View Case Study</span>
+                      <span
+                        style={{ transition: 'transform 0.2s' }}
+                        className="case-study-arrow"
+                      >
+                        →
+                      </span>
+                    </div>
+                  )}
                   {!p.detailPage && (
                     <div style={{ display: 'flex', gap: 12 }}>
                       {p.github ? (
@@ -284,6 +307,9 @@ export function Projects() {
       </div>
       <style>{`
         .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        .view-case-study { opacity: 0.7; transition: opacity 0.2s; }
+        a:hover .view-case-study { opacity: 1; }
+        a:hover .case-study-arrow { transform: translateX(4px); }
         @media (max-width: 767px) { .projects-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
