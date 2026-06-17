@@ -9,6 +9,29 @@ function WhatsAppIcon({ size = 16 }: { size?: number }) {
 }
 
 export function Footer() {
+  const socials = [
+    {
+      icon: <Github size={16} />,
+      href: 'https://github.com/pjperfect',
+      label: 'GitHub',
+    },
+    {
+      icon: <Linkedin size={16} />,
+      href: 'https://linkedin.com/in/pjperfect',
+      label: 'LinkedIn',
+    },
+    {
+      icon: <Mail size={16} />,
+      href: 'mailto:pjole.kenya@gmail.com',
+      label: 'Email',
+    },
+    {
+      icon: <WhatsAppIcon size={16} />,
+      href: 'https://wa.me/254715556379',
+      label: 'WhatsApp',
+    },
+  ];
+
   return (
     <footer
       style={{
@@ -17,107 +40,88 @@ export function Footer() {
         padding: '32px 24px',
       }}
     >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: 20,
-        }}
-      >
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        {/* Top row: PJOle + socials */}
+        <div
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 800,
-            fontSize: 22,
-            color: '#0D7377',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            letterSpacing: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 16,
+            marginBottom: 16,
           }}
+          className="footer-top"
         >
-          PJOle
-        </button>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontWeight: 800,
+              fontSize: 22,
+              color: '#0D7377',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              letterSpacing: 1,
+            }}
+          >
+            PJOle
+          </button>
+          <div style={{ display: 'flex', gap: 10 }}>
+            {socials.map(({ icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                title={label}
+                style={{
+                  width: 34,
+                  height: 34,
+                  borderRadius: '50%',
+                  border: '1.5px solid rgba(13,115,119,0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#C9D1D9',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                    '#0D7377';
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    '#0D7377';
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                    'rgba(13,115,119,0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                    'rgba(13,115,119,0.4)';
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    '#C9D1D9';
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                    'transparent';
+                }}
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
+        {/* Bottom row: copyright centered */}
         <p
           style={{
             fontFamily: "'Inter', sans-serif",
             color: '#C9D1D9',
             fontSize: 13,
             opacity: 0.7,
+            textAlign: 'center',
+            margin: 0,
           }}
-          className="footer-copy"
         >
           Philip Olembo © 2026
         </p>
-        <div style={{ display: 'flex', gap: 10 }}>
-          {[
-            {
-              icon: <Github size={16} />,
-              href: 'https://github.com/pjperfect',
-              label: 'GitHub',
-            },
-            {
-              icon: <Linkedin size={16} />,
-              href: 'https://linkedin.com/in/pjperfect',
-              label: 'LinkedIn',
-            },
-            {
-              icon: <Mail size={16} />,
-              href: 'mailto:pjole.kenya@gmail.com',
-              label: 'Email',
-            },
-            {
-              icon: <WhatsAppIcon size={16} />,
-              href: 'https://wa.me/254715556379',
-              label: 'WhatsApp',
-            },
-          ].map(({ icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              title={label}
-              style={{
-                width: 34,
-                height: 34,
-                borderRadius: '50%',
-                border: '1.5px solid rgba(13,115,119,0.4)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#C9D1D9',
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                  '#0D7377';
-                (e.currentTarget as HTMLAnchorElement).style.color = '#0D7377';
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                  'rgba(13,115,119,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                  'rgba(13,115,119,0.4)';
-                (e.currentTarget as HTMLAnchorElement).style.color = '#C9D1D9';
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                  'transparent';
-              }}
-            >
-              {icon}
-            </a>
-          ))}
-        </div>
       </div>
-      <style>{`
-        @media (max-width: 767px) {
-          .footer-copy { width: 100%; text-align: center; }
-        }
-      `}</style>
     </footer>
   );
 }
