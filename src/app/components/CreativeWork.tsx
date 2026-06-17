@@ -262,7 +262,7 @@ export function CreativeWork() {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
             marginBottom: 48,
             overflowX: 'auto',
             gap: 10,
@@ -270,6 +270,7 @@ export function CreativeWork() {
             paddingLeft: 16,
             paddingRight: 16,
           }}
+          className="creative-tabs"
         >
           {tabs.map((tab) => (
             <button
@@ -530,6 +531,7 @@ export function CreativeWork() {
 
       <style>{`
         .creative-grid { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 767px) { .creative-tabs { justify-content: flex-start !important; } }
         @media (max-width: 1023px) { .creative-grid { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 767px) { .creative-grid { grid-template-columns: 1fr !important; } }
       `}</style>
