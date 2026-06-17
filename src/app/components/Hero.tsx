@@ -9,7 +9,8 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-const profilePhoto = "https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/Alasya.jpg";
+const profilePhoto =
+  'https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/Alasya.jpg';
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -248,7 +249,10 @@ export function Hero() {
               View CV
             </a>
           </div>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <div
+            style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}
+            className="hero-socials"
+          >
             {[
               {
                 icon: <Github size={18} />,
@@ -369,6 +373,7 @@ export function Hero() {
         .hero-photo-wrap { order: 2; }
         .hero-text { order: 1; }
         @media (max-width: 767px) {
+          .hero-socials { justify-content: center; }
           .hero-name { font-size: 40px !important; }
           .hero-inner { flex-direction: column !important; align-items: center !important; text-align: center; gap: 32px !important; }
           .hero-photo-wrap { order: 1 !important; }
