@@ -194,6 +194,7 @@ export function Hero() {
               flexWrap: 'wrap',
               marginBottom: 32,
             }}
+            className="hero-buttons"
           >
             <button
               onClick={scrollToProjects}
@@ -374,6 +375,7 @@ export function Hero() {
         .hero-text { order: 1; }
         @media (max-width: 767px) {
           .hero-socials { justify-content: center; }
+          .hero-buttons { justify-content: center; }
           .hero-name { font-size: 40px !important; }
           .hero-inner { flex-direction: column !important; align-items: center !important; text-align: center; gap: 32px !important; }
           .hero-photo-wrap { order: 1 !important; }
