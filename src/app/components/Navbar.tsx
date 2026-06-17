@@ -197,20 +197,6 @@ export function Navbar() {
           gap: 8,
         }}
       >
-        <button
-          onClick={() => setMenuOpen(false)}
-          style={{
-            position: 'absolute',
-            top: 20,
-            right: 20,
-            background: 'none',
-            border: 'none',
-            color: '#C9D1D9',
-            cursor: 'pointer',
-          }}
-        >
-          <X size={24} />
-        </button>
         {navLinks.map((link) => (
           <button
             key={link}
