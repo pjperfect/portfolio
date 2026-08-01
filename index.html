@@ -3,15 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--
-      Content-Security-Policy via meta tag — GitHub Pages doesn't let us set real HTTP
-      headers, so this is a partial substitute. It can't cover frame-ancestors or
-      report-uri (browsers ignore those in a meta tag), but it does restrict which
-      origins scripts, styles, fonts, images, media, and API calls can come from.
-      'unsafe-inline' is scoped to style-src only, to allow the handful of remaining
-      inline style attributes (dynamic gradients, per-category colors) — script-src
-      has no such exception.
-    -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com https://img.youtube.com; media-src 'self' https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com; connect-src 'self' https://api.emailjs.com; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self';"
@@ -22,26 +13,34 @@
       content="Philip Olembo — Full-Stack Software Engineer based in Nairobi. React, Node.js, Python, AWS S3, M-Pesa integrations. View my portfolio and projects."
     />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="PJOle | Philip Olembo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pjperfect.github.io/portfolio/" />
+    <meta
+      property="og:title"
+      content="Philip Olembo — Software Engineer & Full-Stack Developer"
+    />
     <meta
       property="og:description"
-      content="Full-Stack Software Engineer | React · Node.js · Python | AWS S3 · M-Pesa · PayPal Integrations"
+      content="Full-stack software engineer with a background in Electrical and Electronics Engineering, live event production, and graphic design."
     />
     <meta
       property="og:image"
-      content="https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/Alasya.jpg"
+      content="https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/og-image.jpg"
     />
-    <meta property="og:url" content="https://pjperfect.github.io/portfolio/" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1120" />
+    <meta property="og:image:height" content="671" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PJOle | Philip Olembo" />
+    <meta
+      name="twitter:title"
+      content="Philip Olembo — Software Engineer & Full-Stack Developer"
+    />
     <meta
       name="twitter:description"
-      content="Full-Stack Software Engineer | React · Node.js · Python | AWS S3 · M-Pesa · PayPal Integrations"
+      content="Full-stack software engineer with a background in Electrical and Electronics Engineering, live event production, and graphic design."
     />
     <meta
       name="twitter:image"
-      content="https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/Alasya.jpg"
+      content="https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com/og-image.jpg"
     />
     <link
       rel="icon"
@@ -57,8 +56,8 @@
         height: 100%;
       }
     </style>
-    <script type="module" crossorigin src="/portfolio/assets/index-BmMcBdmc.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CTehHi_B.css">
+    <script type="module" crossorigin src="/portfolio/assets/index-CON51Jyr.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DuAXjczx.css">
   </head>
   <body>
     <div id="root"></div>
