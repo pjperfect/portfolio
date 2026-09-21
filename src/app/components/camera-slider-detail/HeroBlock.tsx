@@ -35,11 +35,18 @@ export function HeroBlock() {
         </div>
 
         <div className="w-full h-[500px] rounded-xl overflow-hidden relative">
-          <img
-            src={assets.cameraSlider.fig6}
-            alt="Motorized Camera Slider in Operation"
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={assets.cameraSlider.fig6.srcSet}
+              sizes="(min-width: 1280px) 1280px, 100vw"
+            />
+            <img
+              src={assets.cameraSlider.fig6.fallback}
+              alt="Motorized Camera Slider in Operation"
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
           <div
             className="absolute inset-0"
             style={{ background: 'linear-gradient(to top, rgba(13,17,23,0.6) 0%, transparent 60%)' }}

@@ -11,6 +11,7 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
+import { Gigs } from './components/Gigs';
 import { CreativeWork } from './components/CreativeWork';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -35,6 +36,7 @@ function HomePage() {
       <Skills />
       <Projects />
       <Experience />
+      <Gigs />
       <CreativeWork />
       <Contact />
     </>

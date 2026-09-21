@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
-import { assets } from '@/config/assets';
+import { assets, type ResponsiveImage } from '@/config/assets';
 
-type Category = 'All' | 'Fliers' | 'Video & Motion' | 'Live Streams';
+type Category = 'All' | 'Fliers' | 'Video & Motion' | 'Live Streams' | 'Merch';
 
 type MediaItem =
   | {
       id: number;
       type: 'image';
-      src: string;
+      src: ResponsiveImage;
       title: string;
       category: Exclude<Category, 'All'>;
     }
@@ -171,14 +171,78 @@ const items: MediaItem[] = [
     thumbnail: 'https://img.youtube.com/vi/HVBRa0vL-Q0/hqdefault.jpg',
     category: 'Video & Motion',
   },
+  {
+    id: 20,
+    type: 'image',
+    src: cw.img12,
+    title: 'HBD Bro Sentrix Mususi — Mimshac Senior Cell',
+    category: 'Fliers',
+  },
+  {
+    id: 21,
+    type: 'image',
+    src: cw.img13,
+    title: 'HBD Bro Sentrix Mususi — From His Wife',
+    category: 'Fliers',
+  },
+  {
+    id: 22,
+    type: 'image',
+    src: cw.img14,
+    title: 'HBD Sis Susan Nyakundi — CEKZ Logistics',
+    category: 'Fliers',
+  },
+  {
+    id: 23,
+    type: 'image',
+    src: cw.img15,
+    title: 'HBD Sis Chantelle Wanza',
+    category: 'Fliers',
+  },
+  {
+    id: 24,
+    type: 'image',
+    src: cw.img16,
+    title: 'HBD Bro Timothy Mengich — Mimshac Senior Cell',
+    category: 'Fliers',
+  },
+  {
+    id: 25,
+    type: 'image',
+    src: cw.img17,
+    title: 'HBD Sis Natasha Mitchell — CEKZ Special Duty',
+    category: 'Fliers',
+  },
+  {
+    id: 26,
+    type: 'image',
+    src: cw.img18,
+    title: '60 Mins on the Altar — Mimshac SC Event Flier',
+    category: 'Fliers',
+  },
+  {
+    id: 27,
+    type: 'image',
+    src: cw.img20,
+    title: 'HBD Sis Vanessa Wambui — Mimshac Cell 1',
+    category: 'Fliers',
+  },
+  {
+    id: 28,
+    type: 'image',
+    src: cw.img19,
+    title: 'The Lord Jesus at Your Doorstep — Apparel Design',
+    category: 'Merch',
+  },
 ];
 
-const tabs: Category[] = ['All', 'Fliers', 'Video & Motion', 'Live Streams'];
+const tabs: Category[] = ['All', 'Fliers', 'Video & Motion', 'Live Streams', 'Merch'];
 
 const categoryColors: Record<Exclude<Category, 'All'>, string> = {
   Fliers: '#9b59b6',
   'Video & Motion': '#0D7377',
   'Live Streams': '#e67e22',
+  Merch: '#c9a227',
 };
 
 export function CreativeWork() {
@@ -265,13 +329,20 @@ export function CreativeWork() {
               className="group relative rounded-lg overflow-hidden cursor-pointer aspect-[4/3] bg-bg p-0 border-none text-left block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               {item.type === 'image' ? (
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-300"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={item.src.srcSet}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                  <img
+                    src={item.src.fallback}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-300"
+                  />
+                </picture>
               ) : item.type === 'youtube' ? (
                 <img
                   src={item.thumbnail}
@@ -341,11 +412,18 @@ export function CreativeWork() {
             className="w-[min(720px,90vw)] flex flex-col items-center gap-4"
           >
             {lightboxItem.type === 'image' ? (
-              <img
-                src={lightboxItem.src}
-                alt={lightboxItem.title}
-                className="max-w-full max-h-[75vh] rounded-lg object-contain"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={lightboxItem.src.srcSet}
+                  sizes="min(720px, 90vw)"
+                />
+                <img
+                  src={lightboxItem.src.fallback}
+                  alt={lightboxItem.title}
+                  className="max-w-full max-h-[75vh] rounded-lg object-contain"
+                />
+              </picture>
             ) : lightboxItem.type === 'youtube' ? (
               <div className="w-full aspect-video rounded-lg overflow-hidden">
                 <iframe

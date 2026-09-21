@@ -39,13 +39,16 @@ export function BuildGallery() {
             key={caption}
             className="min-w-[320px] h-60 rounded-lg overflow-hidden relative flex-shrink-0"
           >
-            <img
-              src={src}
-              alt={caption}
-              className="w-full h-full object-cover"
-              loading={index === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
+            <picture>
+              <source type="image/webp" srcSet={src.srcSet} sizes="320px" />
+              <img
+                src={src.fallback}
+                alt={caption}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </picture>
             <div
               className="absolute bottom-0 left-0 right-0 px-3 pt-4 pb-3"
               style={{
