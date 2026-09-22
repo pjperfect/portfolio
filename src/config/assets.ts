@@ -32,6 +32,15 @@ export const assets = {
     fig5: responsive('Figure_5_Arduino-Based_Slider_Control_Circuit'),
     fig6: responsive('Figure_6_Motorized_Camera_Slider_in_Operation'),
   },
+  gigs: {
+    hamdigrill1: responsive('Hamdigrill_Windows_Setup'),
+    hamdigrill2: responsive('Hamdigrill_Install_Error'),
+    hamdigrill3: responsive('Hamdigrill_Terminal_Static_1'),
+    hamdigrill4: responsive('Hamdigrill_Terminal_Static_2'),
+    hamdigrill5: responsive('Hamdigrill_Screen_Dust'),
+    hamdigrill6: responsive('Hamdigrill_Mini_PC_Unit'),
+    hamdigrill7: responsive('Hamdigrill_Boot_Menu'),
+  },
   creativeWork: {
     img1: responsive('HBD-SIS-RITA-CEKZ-LOGISTICS'),
     img2: responsive('HBD-DCN-LOTAN-CEKZ-LOVEWORLD-SATjpg'),

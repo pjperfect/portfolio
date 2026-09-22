@@ -1,4 +1,10 @@
 import { Tag } from './ui/Tag';
+import { assets, type ResponsiveImage } from '@/config/assets';
+
+type GigPhoto = {
+  src: ResponsiveImage;
+  caption: string;
+};
 
 type Gig = {
   title: string;
@@ -6,6 +12,7 @@ type Gig = {
   date: string;
   desc: string;
   tags: string[];
+  photos?: GigPhoto[];
 };
 
 const gigs: Gig[] = [
@@ -19,10 +26,19 @@ const gigs: Gig[] = [
     • Traced the real cause to dust buildup inside the unit. A friend opened it up and cleared it out, and the terminal came back to normal.
     • Found the job through a contact at a broadcasting station I'd approached about a Software Engineering role, who connected me with the restaurant.`,
     tags: ['Hardware Diagnostics', 'Windows', 'POS Systems', 'Troubleshooting'],
+    photos: [
+      { src: assets.gigs.hamdigrill1, caption: 'Clean Windows install in progress' },
+      { src: assets.gigs.hamdigrill2, caption: 'Install error, ruling out software' },
+      { src: assets.gigs.hamdigrill3, caption: 'Terminal stuck on a static display' },
+      { src: assets.gigs.hamdigrill4, caption: 'Terminal and camera feed setup' },
+      { src: assets.gigs.hamdigrill5, caption: 'Dust visible on the screen' },
+      { src: assets.gigs.hamdigrill6, caption: 'The mini PC unit behind the terminal' },
+      { src: assets.gigs.hamdigrill7, caption: 'Boot menu, SSD detected' },
+    ],
   },
 ];
 
-function GigCard({ title, client, date, desc, tags }: Gig) {
+function GigCard({ title, client, date, desc, tags, photos }: Gig) {
   return (
     <div className="bg-bg rounded-lg px-6 pt-6 pb-5 border-t-[3px] border-accent transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(13,115,119,0.2)]">
       <h3 className="font-display font-bold text-white text-lg mb-1 leading-[1.3]">
@@ -34,6 +50,27 @@ function GigCard({ title, client, date, desc, tags }: Gig) {
       <p className="font-body text-text text-sm leading-[1.7] mb-4 opacity-85 whitespace-pre-line">
         {desc.trim()}
       </p>
+      {photos && photos.length > 0 && (
+        <div className="flex gap-3 overflow-x-auto pb-2 mb-4 -mx-1 px-1">
+          {photos.map((photo) => (
+            <div
+              key={photo.caption}
+              className="flex-shrink-0 w-32 h-24 rounded-md overflow-hidden bg-surface"
+            >
+              <picture>
+                <source type="image/webp" srcSet={photo.src.srcSet} sizes="128px" />
+                <img
+                  src={photo.src.fallback}
+                  alt={photo.caption}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="flex flex-wrap gap-1.5">
         {tags.map((tag) => (
           <Tag key={tag} variant="outline" className="px-2.5 py-[3px] text-[11px]">
