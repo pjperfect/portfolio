@@ -23,7 +23,7 @@ const gigs: Gig[] = [
     desc: `
     • Called in after a POS terminal stopped progressing past the welcome screen following login.
     • Tried a Windows reset first. It failed, which pointed to a hardware fault rather than a software one, so I did a clean Windows 10 install and had the POS software reinstalled to confirm.
-    • Traced the real cause to dust buildup inside the unit. A friend opened it up and cleared it out, and the terminal came back to normal.
+    • Traced the real cause to dust buildup inside the unit. A friend opened it up and cleared it out and the terminal came back to normal.
     • Found the job through a contact at a broadcasting station I'd approached about a Software Engineering role, who connected me with the restaurant.`,
     tags: ['Hardware Diagnostics', 'Windows', 'POS Systems', 'Troubleshooting'],
     photos: [

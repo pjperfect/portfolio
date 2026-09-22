@@ -23,7 +23,7 @@ export function HeroBlock() {
 
         <div className="flex items-center gap-4 mb-8 flex-wrap">
           <span className="px-3.5 py-1.5 bg-gradient-to-br from-gold to-gold-dark rounded-full text-surface font-body text-[13px] font-bold shadow-[0_2px_8px_rgba(255,184,0,0.3)]">
-            🏆 2nd Place — EMU Final Year Project Competition
+            🏆 2nd Place in EMU Final Year Project Competition
           </span>
           <div className="flex gap-3 font-body text-[13px] text-text">
             <span>Team of 3</span>

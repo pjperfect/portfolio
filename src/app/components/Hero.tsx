@@ -120,7 +120,7 @@ export function Hero() {
           </div>
 
           <p className="font-body text-text text-base leading-[1.75] mb-9 max-w-[700px] opacity-85 mx-auto md:mx-0">
-            Full-stack software engineer with a background in Electrical and Electronics Engineering from Eastern Mediterranean University and several years of experience in live event production and graphic design. Completed a software engineering programme at Moringa School covering JavaScript, React, Python, Flask, SQL, and REST API development across five learning modules and a final capstone project. Built and deployed multiple web applications, including an Employer-Centered Ideation (ECI) production-grade creative space booking platform with payment integrations, 360-degree space visualisation and cloud asset delivery for Nairobi Streetwise.
+            Full-stack software engineer with a background in Electrical and Electronics Engineering from Eastern Mediterranean University and several years of experience in live event production and graphic design. Completed a software engineering programme at Moringa School covering JavaScript, React, Python, Flask, SQL and REST API development across five learning modules and a final capstone project. Built and deployed multiple web applications, including an Employer-Centered Ideation (ECI) production-grade creative space booking platform with payment integrations, 360-degree space visualisation and cloud asset delivery for Nairobi Streetwise.
           </p>
 
           <div className="flex justify-center md:justify-start gap-3.5 flex-wrap mb-9">

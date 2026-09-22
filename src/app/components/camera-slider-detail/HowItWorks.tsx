@@ -9,7 +9,7 @@ const cards = [
   {
     title: 'Direction Control',
     description:
-      'A limit switch on Pin 10 of the Arduino reads HIGH or LOW. When LOW, the motor steps in the negative direction. When HIGH, it steps in the positive direction — creating the back-and-forth sliding motion.',
+      'A limit switch on Pin 10 of the Arduino reads HIGH or LOW. When LOW, the motor steps in the negative direction. When HIGH, it steps in the positive direction, creating the back-and-forth sliding motion.',
   },
   {
     title: 'Motor Drive',

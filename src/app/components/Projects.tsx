@@ -6,7 +6,7 @@ const featured = {
   title: 'vision360',
   subtitle: 'Creative Space Booking Platform',
   description:
-    'A full-stack platform that solves fragmented creative space booking by merging immersive 360-degree space discovery with an end-to-end booking, payment, and asset-delivery workflow. Targets photography clients, content creators, event planners, and property managers.',
+    'A full-stack platform that solves fragmented creative space booking by merging immersive 360-degree space discovery with an end-to-end booking, payment and asset-delivery workflow. Targets photography clients, content creators, event planners and property managers.',
   stack: [
     'React 18',
     'Vite',
@@ -47,7 +47,7 @@ const projects = [
     ],
     github: null,
     live: null,
-    award: '2nd Place — EMU 2022',
+    award: '2nd Place Final Project EMU 2022',
     detailPage: '/projects/camera-slider',
   },
   {

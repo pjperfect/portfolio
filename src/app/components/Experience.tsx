@@ -14,7 +14,7 @@ const experience = [
     date: 'Monday, 04th May 2026 – Friday, 29th May 2026',
     desc: `
     • Built the 360-degree space viewer using Three.js with drag-to-explore, inertia, auto-rotation and multi-shot navigation.
-    • Engineered a 3-tier booking flow (Essential, Professional, Enterprise) connected to the backend REST API, handling date selection, space type, and special requirements.
+    • Engineered a 3-tier booking flow (Essential, Professional, Enterprise) connected to the backend REST API, handling date selection, space type and special requirements.
     • Integrated 3 payment methods and full authentication coverage including JWT, Google OAuth and OTP email verification.
     • Implemented secure asset delivery via AWS S3 pre-signed URLs and built the analytics dashboard using Recharts.
     • Managed Git-based collaboration with pull requests across 4 agile sprint phases and daily API contract syncs.`,
@@ -45,9 +45,9 @@ const experience = [
     date: 'January 2019 – Present',
     desc: `
     • Set up and operated live streaming productions using vMix and OBS for church services, weddings, conferences and outreach events across Facebook, YouTube, TikTok and Instagram.
-    • Configured RTMP stream keys, stream URLs, and multi-platform distribution pipelines, maintaining uptime and stream quality under live production conditions.
+    • Configured RTMP stream keys, stream URLs and multi-platform distribution pipelines, maintaining uptime and stream quality under live production conditions.
     • Managed sound engineering with analogue mixers, coordinating technical setup, rehearsal and real-time troubleshooting.
-    • Produced branding assets including logos, animated intros, lyrical video overlays, and event flyers for businesses and organisations.`,
+    • Produced branding assets including logos, animated intros, lyrical video overlays and event flyers for businesses and organisations.`,
     tags: ['vMix', 'OBS', 'RTMP', 'Photoshop'],
   },
 ];
@@ -207,7 +207,7 @@ export function Experience() {
           Experience & Education
         </h2>
         <p className="font-body text-text text-center mb-16 opacity-70 text-[15px]">
-          Where I've worked, studied, and built things
+          Where I've worked, studied and built
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

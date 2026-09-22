@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "type-check": "tsc --noEmit",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "optimize-images": "node scripts/optimize-images.mjs"
@@ -24,10 +25,14 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.2",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "4.7.0",
     "gh-pages": "^6.3.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
     "vite": "^6.4.3"
   },
   "allowScripts": {

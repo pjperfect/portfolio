@@ -35,14 +35,31 @@ export function Contact() {
       return;
     }
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      // This fires when the VITE_EMAILJS_* vars weren't present in .env at build time —
+      // Vite bakes them in at build, so a missing .env before `npm run deploy` means
+      // these come through as undefined in the deployed bundle even though the code is fine.
+      console.error(
+        'EmailJS is not configured — missing env var(s):',
+        { serviceId, templateId, publicKey: publicKey ? '(set)' : undefined }
+      );
+      setSending(false);
+      setError('Failed to send your message. Please try again, or reach out directly using the details above.');
+      return;
+    }
+
     setSending(true);
     setError(null);
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         { from_name: form.name, from_email: form.email, message: form.message },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        publicKey
       )
       .then(() => {
         setSent(true);
@@ -51,7 +68,10 @@ export function Contact() {
         setTimeout(() => setSent(false), 4000);
       })
       .catch((err) => {
-        console.error('EmailJS error:', err);
+        // err from EmailJS is typically { status, text } — status 403 usually means
+        // the request's origin isn't in the service's allowed-origins list, 422 usually
+        // means a template/service ID mismatch, 429 means the free-tier quota is used up.
+        console.error('EmailJS error — status:', err?.status, 'text:', err?.text, 'raw:', err);
         setSending(false);
         setError('Failed to send your message. Please try again, or reach out directly using the details above.');
       });

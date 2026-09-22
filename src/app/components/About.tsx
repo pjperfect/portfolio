@@ -23,7 +23,7 @@ const techCategories = [
 const intro = [
   "Software engineering graduate of Moringa School's 6-month bootcamp, with a strong foundation across the full JavaScript and Python stack.",
   'My background in Electrical & Electronics Engineering (Eastern Mediterranean University, CGPA 3.14) gives me a systems-thinking approach to software problems.',
-  'Beyond code, I bring 6+ years of experience in live event streaming, AV production, and graphic design, which means I think about user experience as both an engineer and a creative.',
+  'Beyond code, I bring 6+ years of experience in live event streaming, AV production and graphic design, which means I think about user experience from an engineer and creative point of view.',
   `Based in ${contact.location}. Open to local & remote opportunities worldwide.`,
 ];
 
@@ -38,9 +38,7 @@ export function About() {
               About Me
             </p>
             <h2 className="font-display font-extrabold text-white text-4xl mb-7 leading-tight">
-              Engineer by training,
-              <br />
-              creator by heart.
+              What I bring to the table.
             </h2>
             <div className="flex flex-col gap-4">
               {intro.map((text, i) => (
