@@ -393,7 +393,7 @@ export function CreativeWork() {
             ref={closeButtonRef}
             onClick={closeLightbox}
             aria-label="Close"
-            className="absolute top-5 right-5 bg-white/10 border-none rounded-full w-10 h-10 flex items-center justify-centertext-white cursor-pointer z-10"
+            className="absolute top-5 right-5 bg-white/10 border-none rounded-full w-10 h-10 flex items-center justify-center text-white cursor-pointer z-10"
           >
             <X size={20} />
           </button>

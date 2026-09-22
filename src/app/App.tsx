@@ -15,6 +15,7 @@ import { Gigs } from './components/Gigs';
 import { CreativeWork } from './components/CreativeWork';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { CookieConsent } from './components/CookieConsent';
 import { CameraSliderDetail } from './components/camera-slider-detail/CameraSliderDetail';
 
 type NavState = { scrollToId?: string } | null;
@@ -25,7 +26,9 @@ function HomePage() {
   useEffect(() => {
     const state = location.state as NavState;
     if (state?.scrollToId) {
-      document.getElementById(state.scrollToId)?.scrollIntoView({ behavior: 'smooth' });
+      document
+        .getElementById(state.scrollToId)
+        ?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [location.state]);
 
@@ -70,9 +73,13 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/projects/camera-slider" element={<CameraSliderDetail />} />
+          <Route
+            path="/projects/camera-slider"
+            element={<CameraSliderDetail />}
+          />
         </Routes>
         <Footer />
+        <CookieConsent />
       </div>
     </Router>
   );
