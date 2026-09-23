@@ -1,12 +1,13 @@
 node_modules
 dist
 .env
-.env.local
-.env.production
+.env.*
+!.env.example
 .DS_Store
 *.log
 optimized
 originals
-*.patchsource-dump.txt
 *.patch
-
+source-dump.txt
+repo-code.txt
+dump-source.mjs
