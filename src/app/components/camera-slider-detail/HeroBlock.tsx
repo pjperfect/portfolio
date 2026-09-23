@@ -18,7 +18,8 @@ export function HeroBlock() {
           Motorized Camera Slider
         </h1>
         <p className="font-body text-text text-lg mb-5 opacity-80">
-          Undergraduate Final Year Project — Eastern Mediterranean University, January 2022
+          Undergraduate Final Year Project — Eastern Mediterranean University,
+          January 2022
         </p>
 
         <div className="flex items-center gap-4 mb-8 flex-wrap">
@@ -34,7 +35,7 @@ export function HeroBlock() {
           </div>
         </div>
 
-        <div className="w-full h-[500px] rounded-xl overflow-hidden relative">
+        <div className="w-full aspect-[3/2] md:aspect-auto md:h-[500px] rounded-xl overflow-hidden relative">
           <picture>
             <source
               type="image/webp"
@@ -44,12 +45,15 @@ export function HeroBlock() {
             <img
               src={assets.cameraSlider.fig6.fallback}
               alt="Motorized Camera Slider in Operation"
-              className="w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </picture>
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, rgba(13,17,23,0.6) 0%, transparent 60%)' }}
+            style={{
+              background:
+                'linear-gradient(to top, rgba(13,17,23,0.6) 0%, transparent 60%)',
+            }}
           />
         </div>
       </div>
