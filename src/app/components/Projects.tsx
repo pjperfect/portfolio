@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Tag } from './ui/Tag';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const featured = {
   title: 'vision360',
@@ -117,7 +117,7 @@ export function Projects() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
@@ -134,7 +134,10 @@ export function Projects() {
           A selection of software, hardware,
           <br className="hidden md:block" /> and creative-tech work
         </motion.h2>
-        <motion.div variants={fadeUp} className="w-12 h-[3px] bg-accent rounded mb-14" />
+        <motion.div
+          variants={fadeUp}
+          className="w-12 h-[3px] bg-accent rounded mb-14"
+        />
 
         {/* Featured card */}
         <motion.div variants={fadeUp}>

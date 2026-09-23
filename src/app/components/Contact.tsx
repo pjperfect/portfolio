@@ -4,13 +4,33 @@ import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, Send, MapPin } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { contact, emailHref } from '@/config/contact';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const cards = [
-  { icon: <Mail size={22} />, label: 'Email', value: contact.email, href: emailHref },
-  { icon: <Linkedin size={22} />, label: 'LinkedIn', value: `linkedin.com/in/${contact.linkedinHandle}`, href: contact.linkedinUrl },
-  { icon: <Github size={22} />, label: 'GitHub', value: `github.com/${contact.githubHandle}`, href: contact.githubUrl },
-  { icon: <WhatsAppIcon size={22} />, label: 'WhatsApp', value: contact.whatsappDisplay, href: contact.whatsappHref },
+  {
+    icon: <Mail size={22} />,
+    label: 'Email',
+    value: contact.email,
+    href: emailHref,
+  },
+  {
+    icon: <Linkedin size={22} />,
+    label: 'LinkedIn',
+    value: `linkedin.com/in/${contact.linkedinHandle}`,
+    href: contact.linkedinUrl,
+  },
+  {
+    icon: <Github size={22} />,
+    label: 'GitHub',
+    value: `github.com/${contact.githubHandle}`,
+    href: contact.githubUrl,
+  },
+  {
+    icon: <WhatsAppIcon size={22} />,
+    label: 'WhatsApp',
+    value: contact.whatsappDisplay,
+    href: contact.whatsappHref,
+  },
 ];
 
 const inputBase =
@@ -45,12 +65,15 @@ export function Contact() {
       // This fires when the VITE_EMAILJS_* vars weren't present in .env at build time —
       // Vite bakes them in at build, so a missing .env before `npm run deploy` means
       // these come through as undefined in the deployed bundle even though the code is fine.
-      console.error(
-        'EmailJS is not configured — missing env var(s):',
-        { serviceId, templateId, publicKey: publicKey ? '(set)' : undefined }
-      );
+      console.error('EmailJS is not configured — missing env var(s):', {
+        serviceId,
+        templateId,
+        publicKey: publicKey ? '(set)' : undefined,
+      });
       setSending(false);
-      setError('Failed to send your message. Please try again, or reach out directly using the details above.');
+      setError(
+        'Failed to send your message. Please try again, or reach out directly using the details above.'
+      );
       return;
     }
 
@@ -73,9 +96,18 @@ export function Contact() {
         // err from EmailJS is typically { status, text } — status 403 usually means
         // the request's origin isn't in the service's allowed-origins list, 422 usually
         // means a template/service ID mismatch, 429 means the free-tier quota is used up.
-        console.error('EmailJS error — status:', err?.status, 'text:', err?.text, 'raw:', err);
+        console.error(
+          'EmailJS error — status:',
+          err?.status,
+          'text:',
+          err?.text,
+          'raw:',
+          err
+        );
         setSending(false);
-        setError('Failed to send your message. Please try again, or reach out directly using the details above.');
+        setError(
+          'Failed to send your message. Please try again, or reach out directly using the details above.'
+        );
       });
   };
 
@@ -84,7 +116,7 @@ export function Contact() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[920px] mx-auto"
       >
@@ -104,12 +136,17 @@ export function Contact() {
           variants={fadeUp}
           className="font-body text-text text-center mb-2 opacity-70 text-[15px]"
         >
-          Open to junior software engineering roles, freelance projects and collaborations — local
-          and remote.
+          Open to junior software engineering roles, freelance projects and
+          collaborations — local and remote.
         </motion.p>
-        <motion.div variants={fadeUp} className="flex items-center justify-center gap-1.5 mb-14">
+        <motion.div
+          variants={fadeUp}
+          className="flex items-center justify-center gap-1.5 mb-14"
+        >
           <MapPin size={13} className="text-accent" />
-          <span className="font-body text-[13px] text-accent">{contact.location}</span>
+          <span className="font-body text-[13px] text-accent">
+            {contact.location}
+          </span>
         </motion.div>
 
         {/* Contact cards */}
@@ -128,8 +165,12 @@ export function Contact() {
                 <span className="w-[46px] h-[46px] rounded-[10px] bg-accent/[0.12] border border-accent/25 flex items-center justify-center text-accent">
                   {c.icon}
                 </span>
-                <p className="font-display font-bold text-white text-sm">{c.label}</p>
-                <p className="font-body text-accent text-xs text-center">{c.value}</p>
+                <p className="font-display font-bold text-white text-sm">
+                  {c.label}
+                </p>
+                <p className="font-body text-accent text-xs text-center">
+                  {c.value}
+                </p>
               </a>
             </motion.div>
           ))}

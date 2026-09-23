@@ -1,26 +1,64 @@
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const skillCategories = [
   {
     title: 'Frontend',
-    skills: ['JavaScript (ES6+)', 'React', 'HTML5', 'CSS3', 'React Router', 'Tailwind CSS', 'Vite', 'Three.js', 'Framer Motion', 'Recharts'],
+    skills: [
+      'JavaScript (ES6+)',
+      'React',
+      'HTML5',
+      'CSS3',
+      'React Router',
+      'Tailwind CSS',
+      'Vite',
+      'Three.js',
+      'Framer Motion',
+      'Recharts',
+    ],
     extra: false,
   },
   {
     title: 'Backend',
-    skills: ['Python', 'Flask', 'Node.js', 'Express', 'REST APIs', 'JWT Authentication', 'OAuth 2.0', 'Marshmallow', 'Nodemailer'],
+    skills: [
+      'Python',
+      'Flask',
+      'Node.js',
+      'Express',
+      'REST APIs',
+      'JWT Authentication',
+      'OAuth 2.0',
+      'Marshmallow',
+      'Nodemailer',
+    ],
     extra: false,
   },
   {
     title: 'Databases & ORMs',
-    skills: ['PostgreSQL', 'SQLite', 'SQLAlchemy', 'Prisma ORM', 'SQL (joins, subqueries, relations)'],
+    skills: [
+      'PostgreSQL',
+      'SQLite',
+      'SQLAlchemy',
+      'Prisma ORM',
+      'SQL (joins, subqueries, relations)',
+    ],
     extra: false,
   },
   {
     title: 'Tools & DevOps',
-    skills: ['Git', 'GitHub', 'VS Code', 'npm', 'pip', 'Jest', 'ESLint', 'Vitest', 'Vercel', 'Render'],
+    skills: [
+      'Git',
+      'GitHub',
+      'VS Code',
+      'npm',
+      'pip',
+      'Jest',
+      'ESLint',
+      'Vitest',
+      'Vercel',
+      'Render',
+    ],
     extra: false,
   },
   {
@@ -30,12 +68,27 @@ const skillCategories = [
   },
   {
     title: 'Media & Design',
-    skills: ['Photoshop (Advanced)', 'Illustrator', 'After Effects', 'Premiere Pro', 'InDesign', 'vMix', 'OBS'],
+    skills: [
+      'Photoshop (Advanced)',
+      'Illustrator',
+      'After Effects',
+      'Premiere Pro',
+      'InDesign',
+      'vMix',
+      'OBS',
+    ],
     extra: true,
   },
   {
     title: 'Engineering',
-    skills: ['AutoCAD', 'MATLAB', 'Multisim', 'Arduino IDE', 'Circuit troubleshooting', 'Microcontroller programming'],
+    skills: [
+      'AutoCAD',
+      'MATLAB',
+      'Multisim',
+      'Arduino IDE',
+      'Circuit troubleshooting',
+      'Microcontroller programming',
+    ],
     extra: true,
   },
 ];
@@ -46,7 +99,7 @@ export function Skills() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >

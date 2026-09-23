@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { contact } from '@/config/contact';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const intro = [
   "Software engineering graduate of Moringa School's 6-month bootcamp, with a strong foundation across the full JavaScript and Python stack.",
@@ -15,7 +15,7 @@ export function About() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[720px] mx-auto text-center"
       >

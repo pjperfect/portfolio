@@ -2,7 +2,7 @@
 // About.tsx and now shared so every section animates in consistently.
 //
 // Usage:
-//   <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}>
+//   <motion.div initial="hidden" whileInView="show" viewport={viewportOnce} variants={staggerContainer}>
 //     <motion.h2 variants={fadeUp}>...</motion.h2>
 //     <motion.div variants={staggerContainer}>          // nested stagger group (e.g. a card grid)
 //       <motion.div variants={fadeUp}>...</motion.div>  // each card
@@ -21,3 +21,9 @@ export const staggerContainer = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12 } },
 };
+
+export const viewportOnce = {
+  once: true,
+  amount: 'some', // any pixel visible triggers it, safe for tall sections
+  margin: '0px 0px -10% 0px', // wait until the top is a bit inside the screen so the reveal is visible
+} as const;

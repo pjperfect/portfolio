@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
 import { assets, type ResponsiveImage } from '@/config/assets';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 type GigPhoto = {
   src: ResponsiveImage;
@@ -35,12 +35,27 @@ const gigs: Gig[] = [
     • Found the job through a contact at a broadcasting station I'd approached about a Software Engineering role, who connected me with the restaurant.`,
     tags: ['Hardware Diagnostics', 'Windows', 'POS Systems', 'Troubleshooting'],
     photos: [
-      { src: assets.gigs.hamdigrill1, caption: 'Clean Windows install in progress' },
-      { src: assets.gigs.hamdigrill2, caption: 'Install error, ruling out software' },
-      { src: assets.gigs.hamdigrill3, caption: 'Terminal stuck on a static display' },
-      { src: assets.gigs.hamdigrill4, caption: 'Terminal and camera feed setup' },
+      {
+        src: assets.gigs.hamdigrill1,
+        caption: 'Clean Windows install in progress',
+      },
+      {
+        src: assets.gigs.hamdigrill2,
+        caption: 'Install error, ruling out software',
+      },
+      {
+        src: assets.gigs.hamdigrill3,
+        caption: 'Terminal stuck on a static display',
+      },
+      {
+        src: assets.gigs.hamdigrill4,
+        caption: 'Terminal and camera feed setup',
+      },
       { src: assets.gigs.hamdigrill5, caption: 'Dust visible on the screen' },
-      { src: assets.gigs.hamdigrill6, caption: 'The mini PC unit behind the terminal' },
+      {
+        src: assets.gigs.hamdigrill6,
+        caption: 'The mini PC unit behind the terminal',
+      },
       { src: assets.gigs.hamdigrill7, caption: 'Boot menu, SSD detected' },
     ],
   },
@@ -78,7 +93,11 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
               className="flex-shrink-0 w-32 h-24 rounded-md overflow-hidden bg-surface"
             >
               <picture>
-                <source type="image/webp" srcSet={photo.src.srcSet} sizes="128px" />
+                <source
+                  type="image/webp"
+                  srcSet={photo.src.srcSet}
+                  sizes="128px"
+                />
                 <img
                   src={photo.src.fallback}
                   alt={photo.caption}
@@ -107,7 +126,11 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
       )}
       <div className="flex flex-wrap gap-1.5">
         {tags.map((tag) => (
-          <Tag key={tag} variant="outline" className="px-2.5 py-[3px] text-[11px]">
+          <Tag
+            key={tag}
+            variant="outline"
+            className="px-2.5 py-[3px] text-[11px]"
+          >
             {tag}
           </Tag>
         ))}
@@ -122,7 +145,7 @@ export function Gigs() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >

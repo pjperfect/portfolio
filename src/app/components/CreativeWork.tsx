@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { assets, type ResponsiveImage } from '@/config/assets';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 type Category = 'All' | 'Fliers' | 'Video & Motion' | 'Live Streams' | 'Merch';
 
@@ -238,7 +238,13 @@ const items: MediaItem[] = [
   },
 ];
 
-const tabs: Category[] = ['All', 'Fliers', 'Video & Motion', 'Live Streams', 'Merch'];
+const tabs: Category[] = [
+  'All',
+  'Fliers',
+  'Video & Motion',
+  'Live Streams',
+  'Merch',
+];
 
 const categoryColors: Record<Exclude<Category, 'All'>, string> = {
   Fliers: '#9b59b6',
@@ -298,7 +304,7 @@ export function CreativeWork() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >

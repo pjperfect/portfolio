@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
-import { fadeUp, staggerContainer } from './ui/motion';
+import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const experience = [
   {
@@ -207,7 +207,7 @@ export function Experience() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={viewportOnce}
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
