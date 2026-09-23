@@ -10,7 +10,9 @@ export type ResponsiveImage = {
 };
 
 const responsive = (stem: string): ResponsiveImage => ({
-  srcSet: RESPONSIVE_WIDTHS.map((w) => `${asset(`${stem}-${w}w.webp`)} ${w}w`).join(', '),
+  srcSet: RESPONSIVE_WIDTHS.map(
+    (w) => `${asset(`${stem}-${w}w.webp`)} ${w}w`
+  ).join(', '),
   fallback: asset(`${stem}-1600w.jpg`),
 });
 
@@ -57,6 +59,8 @@ export const assets = {
     img19: responsive('THE-LORD-JESUS-AT-YOUR-DOORSTEP'),
     img20: responsive('HBD-SIS-VANESSA-MIMSHAC'),
     video1: asset('SUNDAY_SERVICE_WITH_PASTOR_OSAGIE.mp4'),
+    video1Thumb: asset('SUNDAY_SERVICE_WITH_PASTOR_OSAGIE-thumb.jpg'),
     video2: asset('STAY_TUNED.mp4'),
+    video2Thumb: asset('STAY_TUNED-thumb.jpg'),
   },
 };

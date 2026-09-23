@@ -155,6 +155,7 @@ const items: MediaItem[] = [
     id: 17,
     type: 'video',
     src: cw.video1,
+    thumbnail: cw.video1Thumb,
     title: 'Sunday Service with Pastor Osagie',
     category: 'Video & Motion',
   },
@@ -162,6 +163,7 @@ const items: MediaItem[] = [
     id: 18,
     type: 'video',
     src: cw.video2,
+    thumbnail: cw.video2Thumb,
     title: 'Stay Tuned',
     category: 'Video & Motion',
   },
@@ -377,6 +379,7 @@ export function CreativeWork() {
               ) : (
                 <video
                   src={item.src}
+                  poster={item.thumbnail}
                   className="w-full h-full object-cover"
                   preload="none"
                   muted
