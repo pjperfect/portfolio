@@ -66,6 +66,19 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const block = (e: Event) => {
+      if ((e.target as HTMLElement).closest('img, picture, video'))
+        e.preventDefault();
+    };
+    document.addEventListener('contextmenu', block); // right-click + Android long-press
+    document.addEventListener('dragstart', block); // dragging images out to the desktop
+    return () => {
+      document.removeEventListener('contextmenu', block);
+      document.removeEventListener('dragstart', block);
+    };
+  }, []);
+  
   return (
     <Router>
       <div className="bg-bg min-h-screen">
