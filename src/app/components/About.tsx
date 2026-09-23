@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { contact } from '@/config/contact';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 const intro = [
   "Software engineering graduate of Moringa School's 6-month bootcamp, with a strong foundation across the full JavaScript and Python stack.",
@@ -8,11 +9,6 @@ const intro = [
   `Based in ${contact.location}. Open to local & remote opportunities worldwide.`,
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function About() {
   return (
     <section id="about" className="bg-surface px-6 py-24">
@@ -20,10 +16,7 @@ export function About() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: 0.12 } },
-        }}
+        variants={staggerContainer}
         className="max-w-[720px] mx-auto text-center"
       >
         <motion.p

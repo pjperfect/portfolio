@@ -1,4 +1,6 @@
+import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 const experience = [
   {
@@ -138,7 +140,7 @@ function TimelineCard({
   modules?: { title: string; desc: string }[];
 }) {
   return (
-    <div className="flex gap-4 mb-8 relative">
+    <motion.div variants={fadeUp} className="flex gap-4 mb-8 relative">
       <div className="flex flex-col items-center flex-shrink-0">
         <div className="w-3 h-3 rounded-full bg-accent border-2 border-surface flex-shrink-0 mt-1.5 z-10" />
         <div className="flex-1 w-0.5 bg-accent/25 mt-1" />
@@ -178,7 +180,7 @@ function TimelineCard({
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -202,16 +204,28 @@ function ColumnHeading({
 export function Experience() {
   return (
     <section id="experience" className="bg-surface px-6 py-24">
-      <div className="max-w-[1280px] mx-auto">
-        <h2 className="font-display font-extrabold text-white text-4xl text-center mb-2">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainer}
+        className="max-w-[1280px] mx-auto"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl text-center mb-2"
+        >
           Experience & Education
-        </h2>
-        <p className="font-body text-text text-center mb-16 opacity-70 text-[15px]">
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-text text-center mb-16 opacity-70 text-[15px]"
+        >
           Where I've worked, studied and built
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
+          <motion.div variants={staggerContainer}>
             <ColumnHeading
               title="Experience"
               icon={
@@ -234,9 +248,9 @@ export function Experience() {
             {experience.map((e, i) => (
               <TimelineCard key={i} {...e} />
             ))}
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div variants={staggerContainer}>
             <ColumnHeading
               title="Education"
               icon={
@@ -259,9 +273,9 @@ export function Experience() {
             {education.map((e, i) => (
               <TimelineCard key={i} {...e} />
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

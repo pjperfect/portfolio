@@ -1,9 +1,16 @@
+import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
 import { assets, type ResponsiveImage } from '@/config/assets';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 type GigPhoto = {
   src: ResponsiveImage;
   caption: string;
+};
+
+type GigVideo = {
+  src: string;
+  poster?: string;
 };
 
 type Gig = {
@@ -13,6 +20,7 @@ type Gig = {
   desc: string;
   tags: string[];
   photos?: GigPhoto[];
+  video?: GigVideo;
 };
 
 const gigs: Gig[] = [
@@ -36,9 +44,21 @@ const gigs: Gig[] = [
       { src: assets.gigs.hamdigrill7, caption: 'Boot menu, SSD detected' },
     ],
   },
+  {
+    title: 'Live Streaming Workshop',
+    client: 'Tech Connect Media Bootcamp, Christ Embassy Kenya HQ, Nairobi',
+    date: '20th - 21st February 2026',
+    desc: `
+    • Led a session on live streaming, covering why it matters and the basics of getting a stream running.
+    • Session was streamed live on YouTube.`,
+    tags: ['Live Streaming', 'Public Speaking', 'Workshop Facilitation'],
+    // TODO: swap in the trimmed/optimized clip once it's cut from the YouTube
+    // stream and uploaded to the S3 bucket under this filename (see assets.ts).
+    video: { src: assets.gigs.techConnectClip },
+  },
 ];
 
-function GigCard({ title, client, date, desc, tags, photos }: Gig) {
+function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
   return (
     <div className="bg-bg rounded-lg px-6 pt-6 pb-5 border-t-[3px] border-accent transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(13,115,119,0.2)]">
       <h3 className="font-display font-bold text-white text-lg mb-1 leading-[1.3]">
@@ -71,6 +91,20 @@ function GigCard({ title, client, date, desc, tags, photos }: Gig) {
           ))}
         </div>
       )}
+      {video && (
+        <div className="rounded-md overflow-hidden mb-4 bg-surface">
+          <video
+            src={video.src}
+            poster={video.poster}
+            controls
+            preload="none"
+            playsInline
+            className="w-full max-h-[280px] rounded-md"
+          >
+            Your browser doesn't support embedded video.
+          </video>
+        </div>
+      )}
       <div className="flex flex-wrap gap-1.5">
         {tags.map((tag) => (
           <Tag key={tag} variant="outline" className="px-2.5 py-[3px] text-[11px]">
@@ -85,20 +119,37 @@ function GigCard({ title, client, date, desc, tags, photos }: Gig) {
 export function Gigs() {
   return (
     <section id="gigs" className="bg-surface px-6 py-24">
-      <div className="max-w-[1280px] mx-auto">
-        <h2 className="font-display font-extrabold text-white text-4xl text-center mb-2">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="max-w-[1280px] mx-auto"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl text-center mb-2"
+        >
           Gigs
-        </h2>
-        <p className="font-body text-text text-center mb-16 opacity-70 text-[15px]">
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-text text-center mb-16 opacity-70 text-[15px]"
+        >
           Small freelance jobs outside the day-to-day
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {gigs.map((g) => (
-            <GigCard key={g.title + g.client} {...g} />
+            <motion.div key={g.title + g.client} variants={fadeUp}>
+              <GigCard {...g} />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,8 @@
+import { motion } from 'motion/react';
 import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Tag } from './ui/Tag';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 const featured = {
   title: 'vision360',
@@ -112,76 +114,93 @@ function ProjectLinks({
 export function Projects() {
   return (
     <section id="projects" className="bg-surface px-6 py-24">
-      <div className="max-w-[1280px] mx-auto">
-        <p className="font-body text-[11px] tracking-[3px] uppercase text-accent mb-3 font-semibold">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={staggerContainer}
+        className="max-w-[1280px] mx-auto"
+      >
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-[11px] tracking-[3px] uppercase text-accent mb-3 font-semibold"
+        >
           Projects
-        </p>
-        <h2 className="font-display font-extrabold text-white text-4xl mb-2">
+        </motion.p>
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl mb-2"
+        >
           A selection of software, hardware,
           <br className="hidden md:block" /> and creative-tech work
-        </h2>
-        <div className="w-12 h-[3px] bg-accent rounded mb-14" />
+        </motion.h2>
+        <motion.div variants={fadeUp} className="w-12 h-[3px] bg-accent rounded mb-14" />
 
         {/* Featured card */}
-        <div className="relative bg-bg rounded-xl px-6 md:px-10 pt-10 pb-9 mb-6 overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(13,115,119,0.25)]">
-          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-accent" />
-          <div
-            className="absolute -top-16 -right-16 w-[300px] h-[300px] rounded-full pointer-events-none"
-            style={{
-              background:
-                'radial-gradient(circle, rgba(13,115,119,0.08) 0%, transparent 70%)',
-            }}
-          />
+        <motion.div variants={fadeUp}>
+          <div className="relative bg-bg rounded-xl px-6 md:px-10 pt-10 pb-9 mb-6 overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(13,115,119,0.25)]">
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-accent" />
+            <div
+              className="absolute -top-16 -right-16 w-[300px] h-[300px] rounded-full pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(13,115,119,0.08) 0%, transparent 70%)',
+              }}
+            />
 
-          <div className="flex items-start justify-between flex-wrap gap-4 mb-1">
-            <div>
-              <span className="inline-block px-2.5 py-[3px] bg-accent/[0.18] border border-accent/40 rounded-full text-accent font-body text-[11px] font-semibold tracking-wide mb-3">
-                Featured Project
-              </span>
-              <h3 className="font-display font-extrabold text-white text-[28px] mb-1 leading-[1.1]">
-                {featured.title}
-              </h3>
-              <p className="font-body text-accent text-sm font-medium mb-4">
-                {featured.subtitle}
-              </p>
+            <div className="flex items-start justify-between flex-wrap gap-4 mb-1">
+              <div>
+                <span className="inline-block px-2.5 py-[3px] bg-accent/[0.18] border border-accent/40 rounded-full text-accent font-body text-[11px] font-semibold tracking-wide mb-3">
+                  Featured Project
+                </span>
+                <h3 className="font-display font-extrabold text-white text-[28px] mb-1 leading-[1.1]">
+                  {featured.title}
+                </h3>
+                <p className="font-body text-accent text-sm font-medium mb-4">
+                  {featured.subtitle}
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <a
+                  href={featured.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  className="flex items-center gap-1.5 px-4 py-2 border-[1.5px] border-accent/40 rounded-lg text-text font-body text-[13px] no-underline transition-all duration-200 hover:border-accent hover:text-accent"
+                >
+                  <Github size={15} /> Code
+                </a>
+                <a
+                  href={featured.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Live Demo"
+                  className="flex items-center gap-1.5 px-4 py-2 bg-accent border-[1.5px] border-accent rounded-lg text-white font-body text-[13px] no-underline transition-all duration-200 hover:bg-accent-dark"
+                >
+                  <ExternalLink size={15} /> Live Demo
+                </a>
+              </div>
             </div>
-            <div className="flex gap-3">
-              <a
-                href={featured.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-                className="flex items-center gap-1.5 px-4 py-2 border-[1.5px] border-accent/40 rounded-lg text-text font-body text-[13px] no-underline transition-all duration-200 hover:border-accent hover:text-accent"
-              >
-                <Github size={15} /> Code
-              </a>
-              <a
-                href={featured.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Live Demo"
-                className="flex items-center gap-1.5 px-4 py-2 bg-accent border-[1.5px] border-accent rounded-lg text-white font-body text-[13px] no-underline transition-all duration-200 hover:bg-accent-dark"
-              >
-                <ExternalLink size={15} /> Live Demo
-              </a>
+
+            <p className="font-body text-text text-[15px] leading-[1.75] max-w-[820px] mb-6 opacity-85">
+              {featured.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {featured.stack.map((s) => (
+                <Tag key={s} variant="outline">
+                  {s}
+                </Tag>
+              ))}
             </div>
           </div>
-
-          <p className="font-body text-text text-[15px] leading-[1.75] max-w-[820px] mb-6 opacity-85">
-            {featured.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {featured.stack.map((s) => (
-              <Tag key={s} variant="outline">
-                {s}
-              </Tag>
-            ))}
-          </div>
-        </div>
+        </motion.div>
 
         {/* Other projects grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
           {projects.map((p) => {
             const inner = (
               <div className="relative flex flex-col h-full bg-bg rounded-[10px] px-7 pt-7 pb-6 overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.2)]">
@@ -224,22 +243,23 @@ export function Projects() {
               </div>
             );
 
-            return p.detailPage ? (
-              <Link
-                key={p.title}
-                to={p.detailPage}
-                className="no-underline flex flex-col cursor-pointer"
-              >
-                {inner}
-              </Link>
-            ) : (
-              <div key={p.title} className="flex flex-col">
-                {inner}
-              </div>
+            return (
+              <motion.div key={p.title} variants={fadeUp}>
+                {p.detailPage ? (
+                  <Link
+                    to={p.detailPage}
+                    className="no-underline flex flex-col cursor-pointer"
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className="flex flex-col">{inner}</div>
+                )}
+              </motion.div>
             );
           })}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { assets, type ResponsiveImage } from '@/config/assets';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 type Category = 'All' | 'Fliers' | 'Video & Motion' | 'Live Streams' | 'Merch';
 
@@ -293,16 +295,31 @@ export function CreativeWork() {
 
   return (
     <section id="creative-work" className="bg-surface px-6 py-24">
-      <div className="max-w-[1280px] mx-auto">
-        <h2 className="font-display font-extrabold text-white text-4xl text-center mb-3">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={staggerContainer}
+        className="max-w-[1280px] mx-auto"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl text-center mb-3"
+        >
           Creative Work
-        </h2>
-        <p className="font-body text-text text-center mb-10 opacity-80">
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-text text-center mb-10 opacity-80"
+        >
           Media production, graphic design and live streaming work.
-        </p>
+        </motion.p>
 
         {/* Filter tabs */}
-        <div className="flex justify-start md:justify-center mb-12 overflow-x-auto gap-2.5 pb-2 px-4">
+        <motion.div
+          variants={fadeUp}
+          className="flex justify-start md:justify-center mb-12 overflow-x-auto gap-2.5 pb-2 px-4"
+        >
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -316,10 +333,13 @@ export function CreativeWork() {
               {tab}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          variants={fadeUp}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
           {filtered.map((item) => (
             <button
               key={item.id}
@@ -371,14 +391,14 @@ export function CreativeWork() {
               </div>
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {filtered.length === 0 && (
           <p className="text-center text-text opacity-50 font-body pt-10">
             No items in this category yet.
           </p>
         )}
-      </div>
+      </motion.div>
 
       {/* Lightbox */}
       {lightboxItem && (

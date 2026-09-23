@@ -40,6 +40,10 @@ export const assets = {
     hamdigrill5: responsive('Hamdigrill_Screen_Dust'),
     hamdigrill6: responsive('Hamdigrill_Mini_PC_Unit'),
     hamdigrill7: responsive('Hamdigrill_Boot_Menu'),
+    // Trimmed/compressed clip of Philip's segment from the Tech Connect Media
+    // Bootcamp YouTube livestream. Upload the exported MP4 to the S3 bucket
+    // under this exact filename (or update the name below to match).
+    techConnectClip: asset('TechConnect_Media_Bootcamp_LiveStreaming_Talk.mp4'),
   },
   creativeWork: {
     img1: responsive('HBD-SIS-RITA-CEKZ-LOGISTICS'),

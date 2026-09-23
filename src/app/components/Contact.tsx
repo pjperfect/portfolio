@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, Send, MapPin } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { contact, emailHref } from '@/config/contact';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 const cards = [
   { icon: <Mail size={22} />, label: 'Email', value: contact.email, href: emailHref },
@@ -79,52 +81,75 @@ export function Contact() {
 
   return (
     <section id="contact" className="bg-bg px-6 py-24">
-      <div className="max-w-[920px] mx-auto">
-        <p className="font-body text-[11px] tracking-[3px] uppercase text-accent mb-3 font-semibold text-center">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="max-w-[920px] mx-auto"
+      >
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-[11px] tracking-[3px] uppercase text-accent mb-3 font-semibold text-center"
+        >
           Get in Touch
-        </p>
-        <h2 className="font-display font-extrabold text-white text-4xl text-center mb-3">
+        </motion.p>
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl text-center mb-3"
+        >
           Let's Work Together
-        </h2>
-        <p className="font-body text-text text-center mb-2 opacity-70 text-[15px]">
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-text text-center mb-2 opacity-70 text-[15px]"
+        >
           Open to junior software engineering roles, freelance projects and collaborations — local
           and remote.
-        </p>
-        <div className="flex items-center justify-center gap-1.5 mb-14">
+        </motion.p>
+        <motion.div variants={fadeUp} className="flex items-center justify-center gap-1.5 mb-14">
           <MapPin size={13} className="text-accent" />
           <span className="font-body text-[13px] text-accent">{contact.location}</span>
-        </div>
+        </motion.div>
 
         {/* Contact cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+        >
           {cards.map((c) => (
-            <a
-              key={c.label}
-              href={c.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2.5 bg-surface rounded-[10px] px-5 py-6 no-underline border border-accent/15 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.2)] hover:border-accent/40"
-            >
-              <span className="w-[46px] h-[46px] rounded-[10px] bg-accent/[0.12] border border-accent/25 flex items-center justify-center text-accent">
-                {c.icon}
-              </span>
-              <p className="font-display font-bold text-white text-sm">{c.label}</p>
-              <p className="font-body text-accent text-xs text-center">{c.value}</p>
-            </a>
+            <motion.div key={c.label} variants={fadeUp}>
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-2.5 bg-surface rounded-[10px] px-5 py-6 no-underline border border-accent/15 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.2)] hover:border-accent/40"
+              >
+                <span className="w-[46px] h-[46px] rounded-[10px] bg-accent/[0.12] border border-accent/25 flex items-center justify-center text-accent">
+                  {c.icon}
+                </span>
+                <p className="font-display font-bold text-white text-sm">{c.label}</p>
+                <p className="font-body text-accent text-xs text-center">{c.value}</p>
+              </a>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 mb-10">
+        <motion.div variants={fadeUp} className="flex items-center gap-4 mb-10">
           <div className="flex-1 h-px bg-accent/15" />
           <span className="font-body text-xs text-text-dim whitespace-nowrap">
             or send a message directly
           </span>
           <div className="flex-1 h-px bg-accent/15" />
-        </div>
+        </motion.div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-[18px]">
+        <motion.form
+          variants={fadeUp}
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-[18px]"
+        >
           {/* Honeypot — hidden from real users via off-screen positioning + aria-hidden,
               but still present in the DOM for form-filling bots to find and fill in. */}
           <input
@@ -191,8 +216,8 @@ export function Contact() {
               {sent ? 'Message Sent!' : sending ? 'Sending…' : 'Send Message'}
             </button>
           </div>
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 }

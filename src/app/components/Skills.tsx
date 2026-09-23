@@ -1,4 +1,6 @@
+import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
+import { fadeUp, staggerContainer } from './ui/motion';
 
 const skillCategories = [
   {
@@ -41,44 +43,60 @@ const skillCategories = [
 export function Skills() {
   return (
     <section id="skills" className="bg-bg px-6 py-24">
-      <div className="max-w-[1280px] mx-auto">
-        <h2 className="font-display font-extrabold text-white text-4xl text-center mb-2">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="max-w-[1280px] mx-auto"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="font-display font-extrabold text-white text-4xl text-center mb-2"
+        >
           Technical Skills
-        </h2>
-        <p className="font-body text-text text-center mb-14 opacity-70">
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-text text-center mb-14 opacity-70"
+        >
           Technologies and tools I work with
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        </motion.p>
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
           {skillCategories.map((cat) => (
-            <div
-              key={cat.title}
-              className={`relative bg-surface rounded-lg p-6 border-t-[3px] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.25)] ${
-                cat.extra ? 'border-t-accent/40' : 'border-t-accent'
-              }`}
-            >
-              {cat.extra && (
-                <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 bg-accent/15 rounded-full text-accent font-body">
-                  Additional Skills
-                </span>
-              )}
-              <h3
-                className={`font-display font-bold text-base mb-4 ${
-                  cat.extra ? 'text-accent/60' : 'text-accent'
+            <motion.div key={cat.title} variants={fadeUp}>
+              <div
+                className={`relative bg-surface rounded-lg p-6 border-t-[3px] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.25)] ${
+                  cat.extra ? 'border-t-accent/40' : 'border-t-accent'
                 }`}
               >
-                {cat.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <Tag key={skill} variant="subtle">
-                    {skill}
-                  </Tag>
-                ))}
+                {cat.extra && (
+                  <span className="absolute top-3 right-3 text-[10px] px-2 py-0.5 bg-accent/15 rounded-full text-accent font-body">
+                    Additional Skills
+                  </span>
+                )}
+                <h3
+                  className={`font-display font-bold text-base mb-4 ${
+                    cat.extra ? 'text-accent/60' : 'text-accent'
+                  }`}
+                >
+                  {cat.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <Tag key={skill} variant="subtle">
+                      {skill}
+                    </Tag>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
