@@ -139,7 +139,6 @@ export function Projects() {
           className="w-12 h-[3px] bg-accent rounded mb-14"
         />
 
-        {/* Featured card */}
         <motion.div variants={fadeUp}>
           <div className="relative bg-bg rounded-xl px-6 md:px-10 pt-10 pb-9 mb-6 overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(13,115,119,0.25)]">
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent-light to-accent" />
@@ -199,7 +198,6 @@ export function Projects() {
           </div>
         </motion.div>
 
-        {/* Other projects grid */}
         <motion.div
           variants={staggerContainer}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"

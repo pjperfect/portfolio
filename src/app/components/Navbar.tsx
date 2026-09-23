@@ -63,14 +63,11 @@ export function Navbar() {
           scrolled ? 'bg-surface/95 backdrop-blur-md' : 'bg-surface/10 backdrop-blur-[2px]'
         }`}
       >
-        {/* Glass edge — a soft gradient divider that always separates the nav from the
-            content behind it, and brightens once you've scrolled past the hero. */}
         <div
           className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent transition-opacity duration-300 ${
             scrolled ? 'opacity-100' : 'opacity-40'
           }`}
         />
-        {/* Scroll progress bar */}
         <div
           className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-accent to-accent-light transition-[width] duration-100 ease-linear rounded-r"
           style={{ width: `${progress}%` }}
@@ -131,7 +128,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer */}
       <div
         className={`fixed top-0 right-0 bottom-0 w-3/5 overflow-y-auto overscroll-contain bg-surface z-[100] flex flex-col gap-2 px-8 pt-20 pb-8 transition-transform duration-300 ease-out ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'

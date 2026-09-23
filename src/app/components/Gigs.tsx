@@ -67,8 +67,6 @@ const gigs: Gig[] = [
     • Led a session on live streaming, covering why it matters and the basics of getting a stream running.
     • Session was streamed live on YouTube.`,
     tags: ['Live Streaming', 'Public Speaking', 'Workshop Facilitation'],
-    // TODO: swap in the trimmed/optimized clip once it's cut from the YouTube
-    // stream and uploaded to the S3 bucket under this filename (see assets.ts).
     video: { src: assets.gigs.techConnectClip },
   },
 ];

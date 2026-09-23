@@ -98,7 +98,6 @@ export function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 pt-24 pb-14 w-full flex flex-col md:flex-row items-center gap-9 md:gap-16">
-        {/* Text */}
         <div className="flex-1 order-2 md:order-1 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-success/35 bg-success/[0.07] mb-6">
             <span className="w-2 h-2 rounded-full bg-success block animate-avail-pulse" />
@@ -156,7 +155,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Profile photo */}
         <div className="flex-shrink-0 order-1 md:order-2">
           <div className="relative">
             <div className="absolute -inset-1 md:-inset-1.5 rounded-full animate-spin-ring opacity-60 [background:conic-gradient(from_0deg,#0D7377,transparent_60%,#0D7377)]" />

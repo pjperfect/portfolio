@@ -1,25 +1,4 @@
 #!/usr/bin/env node
-// Generates right-sized WebP + JPEG variants for portfolio images.
-//
-// The portfolio was serving full-resolution originals (2-2.2MB each) into
-// boxes as small as 320x240px, so `loading="lazy"` only delayed the download
-// -- it never reduced it. This script fixes the actual cause: it resizes each
-// original down to the widths the site actually needs and re-encodes them as
-// WebP (plus one JPEG fallback), so what gets downloaded is close to what's
-// displayed.
-//
-// Usage:
-//   npm run optimize-images -- --in ./originals --out ./optimized
-//
-// 1. Put your ORIGINAL, full-resolution image files in --in (default:
-//    ./originals). Not the ones currently on S3 -- the source files.
-// 2. Run the script. It writes, for every image found:
-//      <stem>-400w.webp   <stem>-800w.webp   <stem>-1600w.webp   <stem>-1600w.jpg
-//    into --out (default: ./optimized).
-// 3. Upload everything in --out to the philip-portfolio-assets S3 bucket
-//    (same bucket, flat, alongside the existing files).
-// 4. If any filename changed, update the matching `responsive(...)` call in
-//    src/config/assets.ts.
 
 import { readdir, mkdir } from 'node:fs/promises';
 import { extname, basename, join } from 'node:path';
@@ -71,8 +50,6 @@ async function main() {
       console.log(`wrote ${outPath}`);
     }
 
-    // Single JPEG fallback (for the <img> inside <picture>, and any tool that
-    // doesn't understand <source>), sized to the widest breakpoint.
     const fallbackPath = join(outDir, `${stem}-1600w.jpg`);
     await sharp(inputPath)
       .resize({ width: 1600, withoutEnlargement: true })

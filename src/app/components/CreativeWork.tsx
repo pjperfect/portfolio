@@ -284,7 +284,6 @@ export function CreativeWork() {
   const lightboxItem =
     lightbox !== null ? items.find((i) => i.id === lightbox) : null;
 
-  // Move focus into the modal on open, and let Escape / arrow keys drive it while it's open.
   useEffect(() => {
     if (!lightboxItem) return;
     closeButtonRef.current?.focus();
@@ -321,7 +320,6 @@ export function CreativeWork() {
           Media production, graphic design and live streaming work.
         </motion.p>
 
-        {/* Filter tabs */}
         <motion.div
           variants={fadeUp}
           className="flex justify-start md:justify-center mb-12 overflow-x-auto gap-2.5 pb-2 px-4"
@@ -341,7 +339,6 @@ export function CreativeWork() {
           ))}
         </motion.div>
 
-        {/* Grid */}
         <motion.div
           variants={fadeUp}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
@@ -406,7 +403,6 @@ export function CreativeWork() {
         )}
       </motion.div>
 
-      {/* Lightbox */}
       {lightboxItem && (
         <div
           role="dialog"

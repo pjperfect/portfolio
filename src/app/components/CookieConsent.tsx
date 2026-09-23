@@ -25,7 +25,6 @@ export function CookieConsent() {
   const respond = (choice: 'accepted' | 'declined') => {
     setCookie(COOKIE_NAME, choice, 180);
     setVisible(false);
-    // if (choice === 'accepted') { /* init analytics here */ }
   };
 
   return (

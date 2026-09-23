@@ -39,8 +39,6 @@ const labelStyle = 'block font-body text-xs text-text-dim mb-1.5 tracking-wide';
 
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  // Honeypot: real visitors never see or fill this field. Bots that auto-fill every
-  // input on a page will populate it, so a non-empty value marks the submission as spam.
   const [honeypot, setHoneypot] = useState('');
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -50,7 +48,6 @@ export function Contact() {
     e.preventDefault();
 
     if (honeypot) {
-      // Silently pretend it worked — don't tip off the bot that it was caught.
       setSent(true);
       setForm({ name: '', email: '', message: '' });
       setTimeout(() => setSent(false), 4000);
@@ -62,9 +59,6 @@ export function Contact() {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      // This fires when the VITE_EMAILJS_* vars weren't present in .env at build time —
-      // Vite bakes them in at build, so a missing .env before `npm run deploy` means
-      // these come through as undefined in the deployed bundle even though the code is fine.
       console.error('EmailJS is not configured — missing env var(s):', {
         serviceId,
         templateId,
@@ -93,9 +87,6 @@ export function Contact() {
         setTimeout(() => setSent(false), 4000);
       })
       .catch((err) => {
-        // err from EmailJS is typically { status, text } — status 403 usually means
-        // the request's origin isn't in the service's allowed-origins list, 422 usually
-        // means a template/service ID mismatch, 429 means the free-tier quota is used up.
         console.error(
           'EmailJS error — status:',
           err?.status,
@@ -149,7 +140,6 @@ export function Contact() {
           </span>
         </motion.div>
 
-        {/* Contact cards */}
         <motion.div
           variants={staggerContainer}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
@@ -176,7 +166,6 @@ export function Contact() {
           ))}
         </motion.div>
 
-        {/* Divider */}
         <motion.div variants={fadeUp} className="flex items-center gap-4 mb-10">
           <div className="flex-1 h-px bg-accent/15" />
           <span className="font-body text-xs text-text-dim whitespace-nowrap">
@@ -185,14 +174,11 @@ export function Contact() {
           <div className="flex-1 h-px bg-accent/15" />
         </motion.div>
 
-        {/* Form */}
         <motion.form
           variants={fadeUp}
           onSubmit={handleSubmit}
           className="flex flex-col gap-[18px]"
         >
-          {/* Honeypot — hidden from real users via off-screen positioning + aria-hidden,
-              but still present in the DOM for form-filling bots to find and fill in. */}
           <input
             type="text"
             name="company"

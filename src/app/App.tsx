@@ -46,12 +46,6 @@ function HomePage() {
   );
 }
 
-// Resets scroll position on every route change, unless the navigation asked
-// for a specific section (state.scrollToId) — in which case HomePage's own
-// effect above handles scrolling there instead. Without this, React Router
-// leaves the scroll position untouched across client-side navigations, which
-// made links like the navbar logo or "Back to Projects" look like they did
-// nothing when they'd actually navigated while leaving you mid-scroll.
 function ScrollToTop() {
   const location = useLocation();
 
@@ -71,8 +65,8 @@ export default function App() {
       if ((e.target as HTMLElement).closest('img, picture, video'))
         e.preventDefault();
     };
-    document.addEventListener('contextmenu', block); // right-click + Android long-press
-    document.addEventListener('dragstart', block); // dragging images out to the desktop
+    document.addEventListener('contextmenu', block);
+    document.addEventListener('dragstart', block);
     return () => {
       document.removeEventListener('contextmenu', block);
       document.removeEventListener('dragstart', block);
