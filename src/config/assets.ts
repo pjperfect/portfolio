@@ -1,0 +1,66 @@
+const BASE = 'https://philip-portfolio-assets.s3.eu-north-1.amazonaws.com';
+
+export const asset = (path: string) => `${BASE}/${path}`;
+
+const RESPONSIVE_WIDTHS = [400, 800, 1600] as const;
+
+export type ResponsiveImage = {
+  srcSet: string;
+  fallback: string;
+};
+
+const responsive = (stem: string): ResponsiveImage => ({
+  srcSet: RESPONSIVE_WIDTHS.map(
+    (w) => `${asset(`${stem}-${w}w.webp`)} ${w}w`
+  ).join(', '),
+  fallback: asset(`${stem}-1600w.jpg`),
+});
+
+export const assets = {
+  profilePhoto: asset('Alasya-1600w.jpg'),
+  cv: asset('PHILIP_OLEMBO_CV.pdf'),
+  cameraSlider: {
+    fig1: responsive('Figure_1_Motorized_Camera_Slider_Prototype'),
+    fig2: responsive('Figure_2_Electronics_Enclosure_Under_Sliding_Platform'),
+    fig3: responsive('Figure_3_NEMA_17_Drive_System_Detail'),
+    fig4: responsive('Figure_4_Camera_Carriage_and_Belt_Attachment'),
+    fig5: responsive('Figure_5_Arduino-Based_Slider_Control_Circuit'),
+    fig6: responsive('Figure_6_Motorized_Camera_Slider_in_Operation'),
+  },
+  gigs: {
+    hamdigrill1: responsive('Hamdigrill_Windows_Setup'),
+    hamdigrill2: responsive('Hamdigrill_Install_Error'),
+    hamdigrill3: responsive('Hamdigrill_Terminal_Static_1'),
+    hamdigrill4: responsive('Hamdigrill_Terminal_Static_2'),
+    hamdigrill5: responsive('Hamdigrill_Screen_Dust'),
+    hamdigrill6: responsive('Hamdigrill_Mini_PC_Unit'),
+    hamdigrill7: responsive('Hamdigrill_Boot_Menu'),
+    techConnectClip: asset('TechConnect_Media_Bootcamp_LiveStreaming_Talk.mp4'),
+  },
+  creativeWork: {
+    img1: responsive('HBD-SIS-RITA-CEKZ-LOGISTICS'),
+    img2: responsive('HBD-DCN-LOTAN-CEKZ-LOVEWORLD-SATjpg'),
+    img3: responsive('HBD-DCN-LOTAN-CEKZ-LOGISTICS-2'),
+    img4: responsive('HBD-SIS-SHIREEN-CEKZ-LOGISTICS'),
+    img5: responsive('HBD-PST-MATILDA-CEKZ-LOGISTICS'),
+    img6: responsive('HBD-PST-NATHANIA-CEKZ-LOGISTICS'),
+    img7: responsive('HBD-PST-NATHANIA-CEKZ-SPECIAL-DUTY'),
+    img8: responsive('HBD-BABY-KEZA-SALAPEI-CEKZ-LOGISTICS'),
+    img9: responsive('HBD-BRO-SENTRIX-LTM_RADIO'),
+    img10: responsive('HBD-TRACY-ANYANGO-FROM-SIS-MAUREEN'),
+    img11: responsive('HAPPY-WEDDING-ANNIVERSARY'),
+    img12: responsive('HDB-SENTRIX-MIMSHAC'),
+    img13: responsive('HBD-SENTRIX'),
+    img14: responsive('HBD-SIS-SUSAN-CEKZ-LOGISTICS'),
+    img15: responsive('HBD-CHANTELLE'),
+    img16: responsive('HBD-BRO-TIM-MIMSHAC'),
+    img17: responsive('SIS-NATASHA-MITCHELL-CEKZ-SPECIAL-DUTY'),
+    img18: responsive('60-MINS-ON-THE-ALTAR'),
+    img19: responsive('THE-LORD-JESUS-AT-YOUR-DOORSTEP'),
+    img20: responsive('HBD-SIS-VANESSA-MIMSHAC'),
+    video1: asset('SUNDAY_SERVICE_WITH_PASTOR_OSAGIE.mp4'),
+    video1Thumb: asset('SUNDAY_SERVICE_WITH_PASTOR_OSAGIE-thumb.jpg'),
+    video2: asset('STAY_TUNED.mp4'),
+    video2Thumb: asset('STAY_TUNED-thumb.jpg'),
+  },
+};
