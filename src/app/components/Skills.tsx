@@ -1,10 +1,33 @@
 import { motion } from 'motion/react';
+import {
+  Monitor,
+  Server,
+  Database,
+  Wrench,
+  Cloud,
+  Palette,
+  CircuitBoard,
+  type LucideIcon,
+} from 'lucide-react';
 import { Tag } from './ui/Tag';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
-const skillCategories = [
+type SkillCategory = {
+  title: string;
+  icon: LucideIcon;
+  // Grid placement: 2 columns on tablets, 3 on small laptops, a 12-column
+  // layout from 1280px where card widths follow how much each one holds.
+  span: string;
+  // Lays the title beside the tags on the widest screens.
+  wide?: boolean;
+  skills: string[];
+};
+
+const skillCategories: SkillCategory[] = [
   {
     title: 'Frontend',
+    icon: Monitor,
+    span: 'xl:col-span-5',
     skills: [
       'JavaScript (ES6+)',
       'TypeScript',
@@ -24,6 +47,8 @@ const skillCategories = [
   },
   {
     title: 'Backend',
+    icon: Server,
+    span: 'xl:col-span-4',
     skills: [
       'Python',
       'Flask',
@@ -40,6 +65,8 @@ const skillCategories = [
   },
   {
     title: 'Databases & ORMs',
+    icon: Database,
+    span: 'xl:col-span-3',
     skills: [
       'PostgreSQL',
       'SQLite',
@@ -50,6 +77,8 @@ const skillCategories = [
   },
   {
     title: 'Tools & DevOps',
+    icon: Wrench,
+    span: 'xl:col-span-4',
     skills: [
       'Git',
       'GitHub',
@@ -70,6 +99,8 @@ const skillCategories = [
   },
   {
     title: 'Cloud & Integrations',
+    icon: Cloud,
+    span: 'xl:col-span-3',
     skills: [
       'AWS S3',
       'S3 Pre-signed URLs',
@@ -81,6 +112,8 @@ const skillCategories = [
   },
   {
     title: 'Media & Design',
+    icon: Palette,
+    span: 'xl:col-span-5',
     skills: [
       'Photoshop',
       'Illustrator',
@@ -97,6 +130,9 @@ const skillCategories = [
   },
   {
     title: 'Engineering',
+    icon: CircuitBoard,
+    span: 'md:col-span-2 lg:col-span-3 xl:col-span-12',
+    wide: true,
     skills: [
       'AutoCAD',
       'MATLAB',
@@ -136,17 +172,34 @@ export function Skills() {
         </motion.p>
         <motion.div
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-12 gap-5"
         >
-          {skillCategories.map((cat) => (
-            <motion.div key={cat.title} variants={fadeUp}>
-              <div className="bg-surface rounded-lg p-6 border-t-[3px] border-t-accent transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.25)]">
-                <h3 className="font-display font-bold text-base mb-4 text-accent">
-                  {cat.title}
-                </h3>
+          {skillCategories.map(({ title, icon: Icon, span, wide, skills }) => (
+            <motion.div key={title} variants={fadeUp} className={span}>
+              <div
+                className={`h-full bg-surface rounded-xl p-6 border border-white/[0.06] border-t-[3px] border-t-accent transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(13,115,119,0.25)] ${
+                  wide ? 'xl:flex xl:items-start xl:gap-10' : ''
+                }`}
+              >
+                <div
+                  className={`flex items-center gap-3 mb-5 ${
+                    wide ? 'xl:mb-0 xl:w-60 xl:shrink-0 xl:pt-1' : ''
+                  }`}
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent-light">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+                  <h3 className="font-display font-bold text-[17px] leading-tight text-white">
+                    {title}
+                  </h3>
+                </div>
                 <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill) => (
-                    <Tag key={skill} variant="subtle">
+                  {skills.map((skill) => (
+                    <Tag
+                      key={skill}
+                      variant="subtle"
+                      className="px-3 py-1.5 text-[13px]"
+                    >
                       {skill}
                     </Tag>
                   ))}

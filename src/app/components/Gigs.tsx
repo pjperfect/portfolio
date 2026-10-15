@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
+import { ZoomIn } from 'lucide-react';
 import { Tag } from './ui/Tag';
+import { PhotoLightbox } from './ui/PhotoLightbox';
 import { assets, type ResponsiveImage } from '@/config/assets';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
@@ -75,6 +78,8 @@ const gigs: Gig[] = [
 ];
 
 function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
+  const [openPhoto, setOpenPhoto] = useState<number | null>(null);
+
   return (
     <div className="bg-bg rounded-lg px-6 pt-6 pb-5 border-t-[3px] border-accent transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(13,115,119,0.2)]">
       <h3 className="font-display font-bold text-white text-lg mb-1 leading-[1.3]">
@@ -87,11 +92,14 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
         {desc.trim()}
       </p>
       {photos && photos.length > 0 && (
-        <div className="flex gap-3 overflow-x-auto pb-2 mb-4 -mx-1 px-1">
-          {photos.map((photo) => (
-            <div
+        <div className="scrollbar-thin flex gap-3 overflow-x-auto pb-2 mb-4 -mx-1 px-1">
+          {photos.map((photo, i) => (
+            <button
               key={photo.caption}
-              className="flex-shrink-0 w-32 h-24 rounded-md overflow-hidden bg-surface"
+              type="button"
+              onClick={() => setOpenPhoto(i)}
+              aria-label={`View larger: ${photo.caption}`}
+              className="group relative flex-shrink-0 w-32 h-24 rounded-md overflow-hidden bg-surface p-0 border-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               <picture>
                 <source
@@ -104,10 +112,14 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
                   alt={photo.caption}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </picture>
-            </div>
+              <span className="absolute inset-0 bg-black/0 transition-colors duration-200 group-hover:bg-black/35 group-focus-visible:bg-black/35" />
+              <span className="absolute bottom-1.5 right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-black/55 text-white">
+                <ZoomIn size={13} aria-hidden="true" />
+              </span>
+            </button>
           ))}
         </div>
       )}
@@ -138,6 +150,15 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
           </Tag>
         ))}
       </div>
+
+      {photos && openPhoto !== null && (
+        <PhotoLightbox
+          photos={photos}
+          index={openPhoto}
+          onChange={setOpenPhoto}
+          onClose={() => setOpenPhoto(null)}
+        />
+      )}
     </div>
   );
 }
