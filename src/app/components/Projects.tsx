@@ -26,6 +26,8 @@ const featured = {
     'Google OAuth',
     'M-Pesa Daraja',
     'PayPal',
+    'Vercel',
+    'Render',
   ],
   github: 'https://github.com/mongaremetrine5-stack/VISION360-CLIENT-FRONTEND',
   live: 'https://vision-360-client-frontend.vercel.app/',
@@ -36,7 +38,7 @@ const projects = [
     title: 'Motorized Camera Slider',
     subtitle: 'Undergraduate Final Year Project',
     description:
-      'An Arduino-based motorised camera slider built to solve the challenge of manual camera tracking during online education in the COVID-19 pandemic. A 1-metre slider runs on copper pipe rails with a NEMA 17 stepper motor driving a GT2 timing belt, controlled by a potentiometer for variable speed and a limit switch for direction. Built from locally sourced materials for under $200.',
+      'An Arduino-based motorised camera slider built to solve the challenge of manual camera tracking during online education in the COVID-19 pandemic. A 1-metre slider runs on copper pipe rails with a NEMA 17 stepper motor driving a GT2 timing belt, controlled by a potentiometer for variable speed and a limit switch for direction. Budget covered was $200.',
     stack: [
       'Arduino (C++)',
       'NEMA 17 Stepper Motor',
@@ -56,8 +58,14 @@ const projects = [
     title: 'MeterLink — Web',
     subtitle: 'Prepaid Electricity Tracker',
     description:
-      'A web-based platform that allows KPLC prepaid electricity customers to track their usage and token history parsed from SMS messages, providing visibility into consumption patterns.',
-    stack: ['React'],
+      'A web platform that turns KPLC prepaid electricity SMS messages into usage insights. Paste your token SMS and it parses spend, units and dates into a dashboard, monthly analytics with cost-per-kWh breakdowns and a filterable usage history, all stored locally in the browser for privacy.',
+    stack: [
+      'React 19',
+      'Vite',
+      'React Router',
+      'Recharts',
+      'Tailwind CSS',
+    ],
     github: 'https://github.com/pjperfect/meterlink',
     live: 'https://meterlink.vercel.app/',
     award: null,
@@ -67,9 +75,20 @@ const projects = [
     title: 'MeterLink — CLI',
     subtitle: 'Prepaid Electricity Tracker (Python)',
     description:
-      'A Python command-line companion to MeterLink that tracks prepaid electricity token purchases per meter using Excel import and local JSON storage.',
+      "A Python command-line companion to MeterLink (web) that tracks prepaid electricity token purchases per meter for Kenya's KPLC system. It imports purchase history from Excel (pasted M-Pesa/KPLC SMS), with hashed-password login, per-meter tracking, running totals and last-5-purchase summaries, all stored locally in JSON, with a standalone executable also available.",
     stack: ['Python', 'JSON', 'openpyxl'],
     github: 'https://github.com/pjperfect/meterlink-cli',
+    live: null,
+    award: null,
+    detailPage: null,
+  },
+  {
+    title: 'TaskFlow API',
+    subtitle: 'Technical Interview Exercise — Africa Tech Space',
+    description:
+      'Debug, review and extend a small team task-tracker API as part of the Africa Tech Space software engineering internship interview.',
+    stack: ['Node.js', 'Express', 'REST API', 'JSON file storage', 'Git', 'GitHub'],
+    github: 'https://github.com/pjperfect/taskflow',
     live: null,
     award: null,
     detailPage: null,
@@ -200,7 +219,7 @@ export function Projects() {
 
         <motion.div
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5"
         >
           {projects.map((p) => {
             const inner = (

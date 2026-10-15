@@ -7,6 +7,7 @@ import {
   Cloud,
   Palette,
   CircuitBoard,
+  Lightbulb,
   type LucideIcon,
 } from 'lucide-react';
 import { Tag } from './ui/Tag';
@@ -41,6 +42,8 @@ const skillCategories: SkillCategory[] = [
       'Framer Motion',
       'Radix UI',
       'Recharts',
+      'Fetch API',
+      'async/await',
       'Lucide React',
       'LocalStorage',
     ],
@@ -61,6 +64,8 @@ const skillCategories: SkillCategory[] = [
       'Marshmallow',
       'Nodemailer',
       'openpyxl',
+      'Sessions & Cookies',
+      'Password Hashing',
     ],
   },
   {
@@ -69,9 +74,12 @@ const skillCategories: SkillCategory[] = [
     span: 'xl:col-span-3',
     skills: [
       'PostgreSQL',
+      'MongoDB',
+      'Mongoose',
       'SQLite',
       'SQLAlchemy',
       'Prisma ORM',
+      'JSON File Storage',
       'SQL (joins, subqueries, relations)',
     ],
   },
@@ -123,9 +131,9 @@ const skillCategories: SkillCategory[] = [
       'vMix',
       'OBS',
       'EasyWorship',
-      'RTMP',
+      'RTMP Streaming',
       'Multi-platform Streaming',
-      'Sound Engineering',
+      'Analogue Sound Mixing',
     ],
   },
   {
@@ -144,6 +152,20 @@ const skillCategories: SkillCategory[] = [
       'Circuit Troubleshooting',
       'Microcontroller Programming',
       'Solar PV Design',
+      'Hardware Diagnostics',
+      'Windows Installation',
+    ],
+  },
+  {
+    title: 'Concepts',
+    icon: Lightbulb,
+    span: 'md:col-span-2 lg:col-span-3 xl:col-span-12',
+    wide: true,
+    skills: [
+      'OOP',
+      'Data Structures & Algorithms',
+      'Big O Notation',
+      'React Context & Custom Hooks',
     ],
   },
 ];

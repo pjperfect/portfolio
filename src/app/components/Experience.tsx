@@ -4,22 +4,37 @@ import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const experience = [
   {
-    role: 'Intern',
-    org: 'Bar-er Energy Ltd.',
+    role: 'Electrical Engineering Intern',
+    org: 'Bar-Er Energy, Famagusta, Northern Cyprus',
     date: 'Monday, 30th January 2023 – Friday, 17th March 2023',
-    desc: 'Completed electrical project designs using AutoCAD for solar panel installation layouts and wiring schematics.',
+    desc: `
+    • Produced detailed electrical layouts for solar-integrated housing projects in AutoCAD, including wiring diagrams, circuit designs, lighting placement and load calculations, translating engineers' conceptual designs into buildable electrical plans.
+    • Designed solar panel installation layouts and system wiring schematics covering panels, inverters, charge controllers and batteries, in line with IEC solar performance and safety standards.
+    • Applied system design principles including load analysis, solar resource assessment and energy yield estimation, to size and configure PV systems for specific site conditions.
+    • Coordinated design and field work with a Turkish-speaking engineering team, adapting communication across languages.`,
     tags: ['AutoCAD', 'Solar PV', 'Electrical Design'],
+  },
+  {
+    role: 'Media and Streaming Coordinator Volunteer',
+    org: 'Christ Embassy Intl (Believers’ LoveWorld), Nairobi, Kenya',
+    date: 'August 2023 – August 2026',
+    desc: `
+    • Set up and operated live streaming productions using vMix and OBS for church services, weddings, conferences and outreach events across Facebook, YouTube, TikTok and Instagram.
+    • Configured RTMP stream keys, stream URLs and multi-platform distribution pipelines, maintaining uptime and stream quality under live production conditions.
+    • Managed sound engineering with analogue mixers, coordinating technical setup, rehearsal and real-time troubleshooting.
+    • Produced branding assets including logos, animated intros, lyrical video overlays and event flyers for businesses and organisations.`,
+    tags: ['vMix', 'OBS', 'RTMP', 'Photoshop'],
   },
   {
     role: 'Full Stack Software Engineer',
     org: 'vision360 Employer-Centered Ideation Project @ Moringa School',
     date: 'Monday, 04th May 2026 – Friday, 29th May 2026',
     desc: `
-    • Built the 360-degree space viewer using Three.js with drag-to-explore, inertia, auto-rotation and multi-shot navigation.
-    • Engineered a 3-tier booking flow (Essential, Professional, Enterprise) connected to the backend REST API, handling date selection, space type and special requirements.
-    • Integrated 3 payment methods and full authentication coverage including JWT, Google OAuth and OTP email verification.
-    • Implemented secure asset delivery via AWS S3 pre-signed URLs and built the analytics dashboard using Recharts.
-    • Managed Git-based collaboration with pull requests across 4 agile sprint phases and daily API contract syncs.`,
+    • Built a 360° virtual tour viewer using Three.js with drag-to-explore, inertia, auto-rotation and multi-shot navigation, used to showcase sample spaces and deliver clients' own captured tours.
+    • Engineered a 3-tier booking flow (Essential, Professional, Enterprise) for clients to schedule an onsite 360°/3D space-capture session, handling date selection, space type and special requirements via the backend REST API.
+    • Integrated 3 payment methods and full authentication coverage — JWT, Google OAuth and OTP email verification, to secure the booking and delivery process.
+    • Implemented secure, pay-gated asset delivery via AWS S3 pre-signed URLs so clients could access their finished virtual tour once capture and payment were complete, plus an admin analytics dashboard built with Recharts.
+    • Managed Git-based collaboration with pull requests across 4 agile sprint phases and daily API contract syncs with the backend team.`,
     tags: [
       'React 18',
       'Vite',
@@ -42,24 +57,31 @@ const experience = [
     ],
   },
   {
-    role: 'Media & Streaming Coordinator',
-    org: 'Freelance/Church & Events',
-    date: 'January 2019 – Present',
+    role: 'Full Stack Web Development Intern (Remote)',
+    org: 'InternX Technologies, Bengaluru, India',
+    date: 'October 2026 – Present',
     desc: `
-    • Set up and operated live streaming productions using vMix and OBS for church services, weddings, conferences and outreach events across Facebook, YouTube, TikTok and Instagram.
-    • Configured RTMP stream keys, stream URLs and multi-platform distribution pipelines, maintaining uptime and stream quality under live production conditions.
-    • Managed sound engineering with analogue mixers, coordinating technical setup, rehearsal and real-time troubleshooting.
-    • Produced branding assets including logos, animated intros, lyrical video overlays and event flyers for individuals, businesses and organisations.`,
-    tags: ['vMix', 'OBS', 'RTMP', 'Photoshop'],
+    • Completing a 4-week, project-based internship assessed on submitted work: GitHub repository, live deployment and written notes for each weekly task.
+    • Building a MERN notes application with JWT authentication, private per-user data and a responsive Tailwind CSS interface (Week 1).`,
+    tags: ['MERN', 'JWT', 'Tailwind CSS'],
+  },
+  {
+    role: '[Frontend / Backend] Developer Intern (Remote)',
+    org: 'Vyren (DevConnect), Nuremberg, Germany',
+    date: 'October 2026 – Present',
+    desc: `
+    • Working through the Verified [Frontend / Backend] Internship, a free programme with seven mandatory milestones: a knowledge assessment, two practical tasks, a final project, a community contribution, documentation and professional practice.
+    • Assessed on the work produced rather than hours attended. Completion earns a certificate with a public verification page.`,
+    tags: [],
   },
 ];
 
 const education = [
   {
     role: 'Software Engineering Bootcamp',
-    org: 'Moringa School',
+    org: 'Moringa School, Nairobi, Kenya',
     date: 'Monday, 27th October 2025 – Friday, 24th April 2026',
-    desc: '6-month full-stack programme across 5 structured learning modules and a final capstone project. Built and deployed multiple projects throughout.',
+    desc: '6-month full-stack program across 5 structured learning modules and a final capstone project. Built and deployed multiple projects throughout.',
     modules: [
       {
         title: 'Module 1 - Foundations',
@@ -75,7 +97,7 @@ const education = [
       },
       {
         title: 'Module 4 - Python and OOP',
-        desc: 'Python fundamentals, lists, tuples, dictionaries, sets, loops, functions, PyPi, pip, file I/O, OOP (classes, inheritance, property decorators), one-to-many and many-to-many relationships, CLI design, debugging and testing.',
+        desc: 'Python fundamentals, lists, tuples, dictionaries, sets, loops, functions, PyPI, pip, file I/O, OOP (classes, inheritance, property decorators), one-to-many and many-to-many relationships, CLI design, debugging and testing.',
       },
       {
         title: 'Module 5 - Flask and Backend',
@@ -98,7 +120,7 @@ const education = [
       'Vitest',
       'npm',
       'Python',
-      'PyPi',
+      'PyPI',
       'pip',
       'Flask',
       'Flask-SQLAlchemy',
@@ -110,16 +132,16 @@ const education = [
   },
   {
     role: 'B.Sc. Electrical and Electronics Engineering',
-    org: 'Eastern Mediterranean University',
+    org: 'Eastern Mediterranean University, Famagusta, North Cyprus',
     date: 'Monday, 19th February 2018 – Tuesday, 05th July 2022',
-    desc: 'Graduated with CGPA 3.14 / 4.00 (Honors). Specialised in circuit design, microcontroller programming, renewable energy systems and engineering simulation (AutoCAD, MATLAB, Multisim).',
+    desc: 'Graduated with CGPA 3.14 / 4.00 (Honors). Specialised in circuit design, microcontroller programming, renewable energy systems and engineering simulation (AutoCAD, MATLAB, Multisim). Final year project: a motorised camera slider (Arduino, NEMA 17 stepper motor) that took 2nd place at the university\'s Final Year Project Competition.',
     tags: ['Arduino', 'MATLAB', 'AutoCAD', 'Multisim'],
   },
   {
     role: 'A-Levels, AS-Levels and IGCSE',
-    org: 'Brookhouse International School',
-    date: '2013 – 2017',
-    desc: 'Majored in Physics, Mathematics, Geography and Computer Science.',
+    org: 'Brookhouse International School, Nairobi, Kenya',
+    date: 'September 2013 – July 2017',
+    desc: "Majored in Physics, Mathematics, Geography and Computer Science. Activities: Hog Charge, President's Award-Kenya (Silver & Gold), Chess Tournament, Environmental Club.",
     tags: ['Physics', 'Mathematics', 'Computer Science'],
   },
 ];

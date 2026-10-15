@@ -4,10 +4,10 @@ import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const intro = [
   'I am a software engineer with an Electrical & Electronics Engineering degree, and I also work as a graphics and motion designer and live streamer.',
-  'My degree at Eastern Mediterranean University (CGPA 3.14) ended with a motorized camera slider that took 2nd place in the Final Year Project Competition. I then interned at Bar-er Energy, drawing solar PV electrical layouts in AutoCAD and later trained as a full-stack developer at Moringa School.',
+  'My degree at Eastern Mediterranean University (CGPA 3.14) ended with a motorized camera slider that took 2nd place in the Final Year Project Competition. I then interned at Bar-Er Energy, drawing solar PV electrical layouts in AutoCAD and later trained as a full-stack developer at Moringa School.',
   'I built vision360, a booking platform for creative spaces with 360° tours and payments, as well as MeterLink, which turns KPLC token SMS messages into electricity usage insights.',
-  'Since 2019 I have run live streams and sound setup for conferences, programs and outreach events.',
-  'I produce logos, animated intros, video overlays and flyers for individuals, businesses and organisations.',
+  'Since 2023 I have run live streams and sound setup for conferences, programs and outreach events.',
+  'I produce logos, animated intros, video overlays and flyers for businesses and organisations.',
   `Based in ${contact.location}.`,
 ];
 

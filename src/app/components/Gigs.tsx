@@ -29,7 +29,7 @@ type Gig = {
 const gigs: Gig[] = [
   {
     title: 'POS Terminal Repair',
-    client: 'Hamdigrill Restaurant, South C, Nairobi',
+    client: 'HamdiGrill Restaurant, South C, Nairobi, Kenya',
     date: '5th - 7th August 2026',
     desc: `
     • POS terminal stopped progressing past the welcome screen following login.
@@ -64,7 +64,7 @@ const gigs: Gig[] = [
   {
     title: 'Live Streaming Workshop',
     client:
-      'Tech Connect Media Bootcamp, Christ Embassy Kenya HQ, Shimo La Tewa Rd., Nairobi',
+      'Tech Connect Media Bootcamp, Christ Embassy Intl (Believers’ LoveWorld), Nairobi, Kenya',
     date: '20th - 21st February 2026',
     desc: `
     • Led a session on live streaming, covering why it matters and the basics of getting a stream running.
