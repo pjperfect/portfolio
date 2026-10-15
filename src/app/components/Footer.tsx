@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { contact, emailHref } from '@/config/contact';
+import { scrollToTop } from './ui/scroll';
 
 const socials = [
   { icon: <Github size={16} />, href: contact.githubUrl, label: 'GitHub' },
@@ -15,7 +16,7 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={scrollToTop}
             className="font-display font-extrabold text-[22px] text-accent tracking-wide bg-transparent border-none cursor-pointer"
           >
             PJOle

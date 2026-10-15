@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Download } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { assets } from '@/config/assets';
+import { scrollToId, scrollToTop } from './ui/scroll';
 
 function useScrollState() {
   const [progress, setProgress] = useState(0);
@@ -51,7 +52,7 @@ export function Navbar() {
     if (isDetailPage) {
       navigate('/', { state: { scrollToId: id } });
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      scrollToId(id);
     }
     setMenuOpen(false);
   };
@@ -75,9 +76,7 @@ export function Navbar() {
 
         <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-16">
           <button
-            onClick={() =>
-              isDetailPage ? navigate('/') : window.scrollTo({ top: 0, behavior: 'smooth' })
-            }
+            onClick={() => (isDetailPage ? navigate('/') : scrollToTop())}
             className="font-display font-extrabold text-2xl text-accent bg-transparent border-none cursor-pointer tracking-wide"
           >
             PJOle

@@ -17,6 +17,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
 import { CameraSliderDetail } from './components/camera-slider-detail/CameraSliderDetail';
+import { scrollToId } from './components/ui/scroll';
 
 type NavState = { scrollToId?: string } | null;
 
@@ -26,9 +27,7 @@ function HomePage() {
   useEffect(() => {
     const state = location.state as NavState;
     if (state?.scrollToId) {
-      document
-        .getElementById(state.scrollToId)
-        ?.scrollIntoView({ behavior: 'smooth' });
+      scrollToId(state.scrollToId);
     }
   }, [location.state]);
 

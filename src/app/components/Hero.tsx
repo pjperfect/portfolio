@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { Tag } from './ui/Tag';
+import { scrollToId } from './ui/scroll';
 import { assets } from '@/config/assets';
 import { contact, emailHref } from '@/config/contact';
 
@@ -95,8 +96,7 @@ export function Hero() {
     };
   }, []);
 
-  const scrollToProjects = () =>
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToProjects = () => scrollToId('projects');
 
   return (
     <section
@@ -202,11 +202,7 @@ export function Hero() {
       </div>
 
       <button
-        onClick={() =>
-          document
-            .getElementById('about')
-            ?.scrollIntoView({ behavior: 'smooth' })
-        }
+        onClick={() => scrollToId('about')}
         aria-label="Scroll to About section"
         className="hidden md:flex absolute z-20 bottom-8 left-1/2 -translate-x-1/2 bg-transparent border-[1.5px] border-accent/30 rounded-full text-accent cursor-pointer px-[18px] py-2 items-center gap-1.5 font-body text-[11px] tracking-[1.5px] uppercase transition-all duration-200 animate-fade-float hover:bg-accent/10 hover:border-accent"
       >
