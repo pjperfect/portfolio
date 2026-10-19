@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { Tag } from './ui/Tag';
+import { SectionHeading } from './ui/SectionHeading';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 type SkillCategory = {
@@ -180,18 +181,10 @@ export function Skills() {
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
-        <motion.h2
-          variants={fadeUp}
-          className="font-display font-extrabold text-white text-4xl text-center mb-2"
-        >
-          Technical Skills
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-text text-center mb-14 opacity-70"
-        >
-          Technologies and tools I work with
-        </motion.p>
+        <SectionHeading
+          title="Technical Skills"
+          subtitle="Technologies and tools I work with"
+        />
         <motion.div
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-12 gap-5"

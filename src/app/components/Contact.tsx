@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, Send, MapPin } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { contact, emailHref } from '@/config/contact';
+import { SectionHeading } from './ui/SectionHeading';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const cards = [
@@ -111,18 +112,11 @@ export function Contact() {
         variants={staggerContainer}
         className="max-w-[920px] mx-auto"
       >
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-[11px] tracking-[3px] uppercase text-accent mb-3 font-semibold text-center"
-        >
-          Get in Touch
-        </motion.p>
-        <motion.h2
-          variants={fadeUp}
-          className="font-display font-extrabold text-white text-4xl text-center mb-3"
-        >
-          Let's Work Together
-        </motion.h2>
+        <SectionHeading
+          title="Contact"
+          subtitle="Let's work together"
+          spacing="mb-5"
+        />
         <motion.p
           variants={fadeUp}
           className="font-body text-text text-center mb-2 opacity-70 text-[15px]"

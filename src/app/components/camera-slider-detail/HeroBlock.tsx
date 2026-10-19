@@ -15,7 +15,7 @@ export function HeroBlock() {
         </Link>
 
         <h1 className="font-display font-extrabold text-white text-[48px] mb-3">
-          Motorized Camera Slider
+          Motorised Camera Slider
         </h1>
         <p className="font-body text-text text-lg mb-5 opacity-80">
           Undergraduate Final Year Project — Eastern Mediterranean University,
@@ -44,7 +44,7 @@ export function HeroBlock() {
             />
             <img
               src={assets.cameraSlider.fig6.fallback}
-              alt="Motorized Camera Slider in Operation"
+              alt="Motorised Camera Slider in Operation"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </picture>

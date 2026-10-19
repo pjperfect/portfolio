@@ -66,6 +66,22 @@ img {
   animation: fadeFloat 3s ease-in-out infinite;
 }
 
+/* Countdown bar under the About slideshow. The duration is set inline to match the timer. */
+@keyframes slideProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.animate-slide-progress {
+  transform-origin: left;
+  animation-name: slideProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
 .scrollbar-thin::-webkit-scrollbar {
   height: 8px;
 }

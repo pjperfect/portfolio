@@ -3,7 +3,9 @@ import { motion } from 'motion/react';
 import { ZoomIn } from 'lucide-react';
 import { Tag } from './ui/Tag';
 import { PhotoLightbox } from './ui/PhotoLightbox';
-import { assets, type ResponsiveImage } from '@/config/assets';
+import { SectionHeading } from './ui/SectionHeading';
+import type { ResponsiveImage } from '@/config/assets';
+import { hamdigrillPhotos, liveStreamingWorkshopVideo } from '@/config/media';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 type GigPhoto = {
@@ -36,30 +38,7 @@ const gigs: Gig[] = [
     •	Ruled out software first: a Windows reset failed, pointing to a hardware fault, proceeded with a clean Windows 10 install.
     •	Traced the real cause to dust buildup inside the unit. Opened up the CPU and cleared out the dust, resulting in the terminal working normally.`,
     tags: ['Hardware Diagnostics', 'Windows', 'POS Systems', 'Troubleshooting'],
-    photos: [
-      {
-        src: assets.gigs.hamdigrill1,
-        caption: 'Clean Windows install in progress',
-      },
-      {
-        src: assets.gigs.hamdigrill2,
-        caption: 'Install error, ruling out software',
-      },
-      {
-        src: assets.gigs.hamdigrill3,
-        caption: 'Terminal stuck on a static display',
-      },
-      {
-        src: assets.gigs.hamdigrill4,
-        caption: 'Terminal and camera feed setup',
-      },
-      { src: assets.gigs.hamdigrill5, caption: 'Dust visible on the screen' },
-      {
-        src: assets.gigs.hamdigrill6,
-        caption: 'The mini PC unit behind the terminal',
-      },
-      { src: assets.gigs.hamdigrill7, caption: 'Boot menu, SSD detected' },
-    ],
+    photos: hamdigrillPhotos,
   },
   {
     title: 'Live Streaming Workshop',
@@ -70,10 +49,7 @@ const gigs: Gig[] = [
     • Led a session on live streaming, covering why it matters and the basics of getting a stream running.
     • Session was streamed live with an onsite attendance of over 100 and an online viewership of over 500.`,
     tags: ['Live Streaming', 'Public Speaking', 'Workshop Facilitation'],
-    video: {
-      src: assets.gigs.techConnectClip,
-      poster: assets.gigs.techConnectClipThumb,
-    },
+    video: liveStreamingWorkshopVideo,
   },
 ];
 
@@ -165,7 +141,7 @@ function GigCard({ title, client, date, desc, tags, photos, video }: Gig) {
 
 export function Gigs() {
   return (
-    <section id="gigs" className="bg-surface px-6 py-24">
+    <section id="freelance" className="bg-surface px-6 py-24">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -173,18 +149,11 @@ export function Gigs() {
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
-        <motion.h2
-          variants={fadeUp}
-          className="font-display font-extrabold text-white text-4xl text-center mb-2"
-        >
-          Gigs
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-text text-center mb-16 opacity-70 text-[15px]"
-        >
-          Small freelance jobs outside the day-to-day
-        </motion.p>
+        <SectionHeading
+          title="Freelance Work"
+          subtitle="Small jobs outside the day-to-day"
+          spacing="mb-16"
+        />
 
         <motion.div
           variants={staggerContainer}

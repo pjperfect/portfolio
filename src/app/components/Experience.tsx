@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Tag } from './ui/Tag';
+import { SectionHeading } from './ui/SectionHeading';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
 const experience = [
@@ -28,7 +29,7 @@ const experience = [
   {
     role: 'Full Stack Software Engineer',
     org: 'vision360 Employer-Centered Ideation Project @ Moringa School',
-    date: 'Monday, 04th May 2026 – Friday, 29th May 2026',
+    date: 'Monday, 4th May 2026 – Friday, 29th May 2026',
     desc: `
     • Built a 360° virtual tour viewer using Three.js with drag-to-explore, inertia, auto-rotation and multi-shot navigation, used to showcase sample spaces and deliver clients' own captured tours.
     • Engineered a 3-tier booking flow (Essential, Professional, Enterprise) for clients to schedule an onsite 360°/3D space-capture session, handling date selection, space type and special requirements via the backend REST API.
@@ -81,7 +82,7 @@ const education = [
     role: 'Software Engineering Bootcamp',
     org: 'Moringa School, Nairobi, Kenya',
     date: 'Monday, 27th October 2025 – Friday, 24th April 2026',
-    desc: '6-month full-stack program across 5 structured learning modules and a final capstone project. Built and deployed multiple projects throughout.',
+    desc: '6-month full-stack programme across 5 structured learning modules and a final capstone project. Built and deployed multiple projects throughout.',
     modules: [
       {
         title: 'Module 1 - Foundations',
@@ -101,7 +102,7 @@ const education = [
       },
       {
         title: 'Module 5 - Flask and Backend',
-        desc: 'Flask, REST APIs, full CRUD, Flask-SQLAlchemy, SQL (SELECT, filter, JOIN, subqueries), Marshmallow serialization, JWT authentication, sessions, cookies, password hashing, deployment (Render), data structures and algorithms (linked lists, hash tables, trees, stacks, queues, recursion), React-Flask integration.',
+        desc: 'Flask, REST APIs, full CRUD, Flask-SQLAlchemy, SQL (SELECT, filter, JOIN, subqueries), Marshmallow serialisation, JWT authentication, sessions, cookies, password hashing, deployment (Render), data structures and algorithms (linked lists, hash tables, trees, stacks, queues, recursion), React-Flask integration.',
       },
     ],
     tags: [
@@ -133,8 +134,8 @@ const education = [
   {
     role: 'B.Sc. Electrical and Electronics Engineering',
     org: 'Eastern Mediterranean University, Famagusta, North Cyprus',
-    date: 'Monday, 19th February 2018 – Tuesday, 05th July 2022',
-    desc: 'Graduated with CGPA 3.14 / 4.00 (Honors). Specialised in circuit design, microcontroller programming, renewable energy systems and engineering simulation (AutoCAD, MATLAB, Multisim). Final year project: a motorised camera slider (Arduino, NEMA 17 stepper motor) that took 2nd place at the university\'s Final Year Project Competition.',
+    date: 'Monday, 19th February 2018 – Tuesday, 5th July 2022',
+    desc: 'Graduated with CGPA 3.14 / 4.00 (Honours). Specialised in circuit design, microcontroller programming, renewable energy systems and engineering simulation (AutoCAD, MATLAB, Multisim). Final year project: a motorised camera slider (Arduino, NEMA 17 stepper motor) that took 2nd place at the university\'s Final Year Project Competition.',
     tags: ['Arduino', 'MATLAB', 'AutoCAD', 'Multisim'],
   },
   {
@@ -233,23 +234,16 @@ export function Experience() {
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
-        <motion.h2
-          variants={fadeUp}
-          className="font-display font-extrabold text-white text-4xl text-center mb-2"
-        >
-          Experience & Education
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-text text-center mb-16 opacity-70 text-[15px]"
-        >
-          Where I've worked, studied and built
-        </motion.p>
+        <SectionHeading
+          title="Work Experience & Education"
+          subtitle="Where I've worked, studied and built"
+          spacing="mb-16"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div variants={staggerContainer}>
             <ColumnHeading
-              title="Experience"
+              title="Work Experience"
               icon={
                 <svg
                   width="18"

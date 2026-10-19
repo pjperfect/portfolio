@@ -31,7 +31,7 @@ function useScrollState() {
   return { progress, scrolled };
 }
 
-const navLinks = ['About', 'Skills', 'Projects', 'Experience', 'Gigs', 'Creative Work', 'Contact'];
+const navLinks = ['About', 'Skills', 'Projects', 'Experience', 'Freelance', 'Creative Work', 'Contact'];
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

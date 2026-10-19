@@ -1,248 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
-import { assets, type ResponsiveImage } from '@/config/assets';
+import {
+  creativeCategories as categories,
+  creativeItems as items,
+  categoryColors,
+  type CreativeCategory as ItemCategory,
+  type CreativeItem as MediaItem,
+} from '@/config/media';
+import { SectionHeading } from './ui/SectionHeading';
 import { fadeUp, staggerContainer, viewportOnce } from './ui/motion';
 
-// Order here drives both the filter menu and the order of items in "All".
-const categories = ['Fliers', 'Video & Motion', 'Live Streams', 'Merch'] as const;
-
-type ItemCategory = (typeof categories)[number];
 type Category = 'All' | ItemCategory;
-
-type MediaItem =
-  | {
-      id: number;
-      type: 'image';
-      src: ResponsiveImage;
-      title: string;
-      category: ItemCategory;
-    }
-  | {
-      id: number;
-      type: 'youtube';
-      videoId: string;
-      title: string;
-      thumbnail: string;
-      category: ItemCategory;
-    }
-  | {
-      id: number;
-      type: 'video';
-      src: string;
-      title: string;
-      thumbnail?: string;
-      category: ItemCategory;
-    };
-
-const { creativeWork: cw } = assets;
-
-const items: MediaItem[] = [
-  {
-    id: 1,
-    type: 'image',
-    src: cw.img1,
-    title: 'HBD Sis Rita — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 2,
-    type: 'image',
-    src: cw.img2,
-    title: 'HBD Dcn Lotan Salapei — Loveworld SAT',
-    category: 'Fliers',
-  },
-  {
-    id: 3,
-    type: 'image',
-    src: cw.img3,
-    title: 'HBD Dcn Lotan — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 4,
-    type: 'image',
-    src: cw.img4,
-    title: 'HBD Sis Shireen — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 5,
-    type: 'image',
-    src: cw.img5,
-    title: 'HBD Pst Matilda Salapei — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 6,
-    type: 'image',
-    src: cw.img6,
-    title: 'HBD Pst Nathania — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 7,
-    type: 'image',
-    src: cw.img7,
-    title: 'HBD Pst Nathania — Special Duty',
-    category: 'Fliers',
-  },
-  {
-    id: 8,
-    type: 'image',
-    src: cw.img8,
-    title: 'HBD Baby Keza Salapei — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 9,
-    type: 'image',
-    src: cw.img9,
-    title: 'HBD Bro Sentrix — LTM Radio',
-    category: 'Fliers',
-  },
-  {
-    id: 10,
-    type: 'image',
-    src: cw.img10,
-    title: 'HBD Tracy Anyango — From Sis Maureen',
-    category: 'Fliers',
-  },
-  {
-    id: 11,
-    type: 'image',
-    src: cw.img11,
-    title: 'Happy Wedding Anniversary',
-    category: 'Fliers',
-  },
-  {
-    id: 12,
-    type: 'youtube',
-    videoId: 'GdZIMSt3Cn8',
-    title: 'Live Stream — Church Service',
-    thumbnail: 'https://img.youtube.com/vi/GdZIMSt3Cn8/hqdefault.jpg',
-    category: 'Live Streams',
-  },
-  {
-    id: 13,
-    type: 'youtube',
-    videoId: 'wqqui8UtDTk',
-    title: 'Live Stream — Special Service',
-    thumbnail: 'https://img.youtube.com/vi/wqqui8UtDTk/hqdefault.jpg',
-    category: 'Live Streams',
-  },
-  {
-    id: 14,
-    type: 'youtube',
-    videoId: 'zxHXEVZh_Y4',
-    title: 'Live Stream — Sunday Service',
-    thumbnail: 'https://img.youtube.com/vi/zxHXEVZh_Y4/hqdefault.jpg',
-    category: 'Live Streams',
-  },
-  {
-    id: 15,
-    type: 'youtube',
-    videoId: 'V_aHl2UrGns',
-    title: 'Live Stream — Evening Service',
-    thumbnail: 'https://img.youtube.com/vi/V_aHl2UrGns/hqdefault.jpg',
-    category: 'Live Streams',
-  },
-  {
-    id: 16,
-    type: 'youtube',
-    videoId: 'Lk48dOjETo0',
-    title: 'Live Stream — Special Event',
-    thumbnail: 'https://img.youtube.com/vi/Lk48dOjETo0/hqdefault.jpg',
-    category: 'Live Streams',
-  },
-  {
-    id: 17,
-    type: 'video',
-    src: cw.video1,
-    thumbnail: cw.video1Thumb,
-    title: 'Sunday Service with Pastor Osagie',
-    category: 'Video & Motion',
-  },
-  {
-    id: 18,
-    type: 'video',
-    src: cw.video2,
-    thumbnail: cw.video2Thumb,
-    title: 'Stay Tuned',
-    category: 'Video & Motion',
-  },
-  {
-    id: 19,
-    type: 'youtube',
-    videoId: 'HVBRa0vL-Q0',
-    title: 'Creative Production',
-    thumbnail: 'https://img.youtube.com/vi/HVBRa0vL-Q0/hqdefault.jpg',
-    category: 'Video & Motion',
-  },
-  {
-    id: 20,
-    type: 'image',
-    src: cw.img12,
-    title: 'HBD Bro Sentrix Mususi — Mimshac Senior Cell',
-    category: 'Fliers',
-  },
-  {
-    id: 21,
-    type: 'image',
-    src: cw.img13,
-    title: 'HBD Bro Sentrix Mususi — From His Wife',
-    category: 'Fliers',
-  },
-  {
-    id: 22,
-    type: 'image',
-    src: cw.img14,
-    title: 'HBD Sis Susan Nyakundi — CEKZ Logistics',
-    category: 'Fliers',
-  },
-  {
-    id: 23,
-    type: 'image',
-    src: cw.img15,
-    title: 'HBD Sis Chantelle Wanza',
-    category: 'Fliers',
-  },
-  {
-    id: 24,
-    type: 'image',
-    src: cw.img16,
-    title: 'HBD Bro Timothy Mengich — Mimshac Senior Cell',
-    category: 'Fliers',
-  },
-  {
-    id: 25,
-    type: 'image',
-    src: cw.img17,
-    title: 'HBD Sis Natasha Mitchell — CEKZ Special Duty',
-    category: 'Fliers',
-  },
-  {
-    id: 26,
-    type: 'image',
-    src: cw.img18,
-    title: '60 Mins on the Altar — Mimshac SC Event Flier',
-    category: 'Fliers',
-  },
-  {
-    id: 27,
-    type: 'image',
-    src: cw.img20,
-    title: 'HBD Sis Vanessa Wambui — Mimshac Cell 1',
-    category: 'Fliers',
-  },
-  {
-    id: 28,
-    type: 'image',
-    src: cw.img19,
-    title: 'The Lord Jesus at Your Doorstep — Apparel Design',
-    category: 'Merch',
-  },
-];
 
 const tabs: Category[] = ['All', ...categories];
 
@@ -251,13 +20,6 @@ const tabs: Category[] = ['All', ...categories];
 const orderedItems: MediaItem[] = [...items].sort(
   (a, b) => categories.indexOf(a.category) - categories.indexOf(b.category)
 );
-
-const categoryColors: Record<ItemCategory, string> = {
-  Fliers: '#9b59b6',
-  'Video & Motion': '#0D7377',
-  'Live Streams': '#e67e22',
-  Merch: '#c9a227',
-};
 
 export function CreativeWork() {
   const [active, setActive] = useState<Category>('All');
@@ -315,18 +77,11 @@ export function CreativeWork() {
         variants={staggerContainer}
         className="max-w-[1280px] mx-auto"
       >
-        <motion.h2
-          variants={fadeUp}
-          className="font-display font-extrabold text-white text-4xl text-center mb-3"
-        >
-          Creative Work
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-text text-center mb-10 opacity-80"
-        >
-          Media production, graphic design and live streaming work.
-        </motion.p>
+        <SectionHeading
+          title="Creative Work"
+          subtitle="Media production, graphic design and live streaming work"
+          spacing="mb-10"
+        />
 
         <motion.div
           variants={fadeUp}

@@ -11,6 +11,8 @@
     "type-check": "tsc --noEmit",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
+    "british": "node scripts/britishise.mjs",
+    "british:write": "node scripts/britishise.mjs --write",
     "optimize-images": "node scripts/optimize-images.mjs",
     "video-thumbs": "node scripts/video-thumbs.mjs"
   },

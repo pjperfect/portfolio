@@ -1,31 +1,5 @@
 import { DetailSection } from './DetailSection';
-import { assets } from '@/config/assets';
-
-const { cameraSlider } = assets;
-
-const photos = [
-  {
-    src: cameraSlider.fig1,
-    caption: 'Figure 1 — Motorized Camera Slider Prototype',
-  },
-  {
-    src: cameraSlider.fig2,
-    caption: 'Figure 2 — Electronics Enclosure Under Sliding Platform',
-  },
-  { src: cameraSlider.fig3, caption: 'Figure 3 — NEMA 17 Drive System Detail' },
-  {
-    src: cameraSlider.fig4,
-    caption: 'Figure 4 — Camera Carriage and Belt Attachment',
-  },
-  {
-    src: cameraSlider.fig5,
-    caption: 'Figure 5 — Arduino-Based Slider Control Circuit',
-  },
-  {
-    src: cameraSlider.fig6,
-    caption: 'Figure 6 — Motorized Camera Slider in Operation',
-  },
-];
+import { cameraSliderPhotos as photos } from '@/config/media';
 
 export function BuildGallery() {
   return (
