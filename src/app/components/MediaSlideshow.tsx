@@ -3,6 +3,7 @@ import {
   useEffect,
   useRef,
   useState,
+  type CSSProperties,
   type KeyboardEvent,
   type RefObject,
   type TouchEvent,
@@ -155,7 +156,10 @@ export function MediaSlideshow() {
   const inView = useInView(rootRef);
   const tabHidden = useDocumentHidden();
 
-  const autoplay = total > 1 && !reducedMotion;
+  // Visitors who ask for reduced motion (many Windows laptops report it when animation
+  // effects or battery saver are on) still get the timer. Slides swap instantly instead of
+  // sliding, and the pause button stays available.
+  const autoplay = total > 1;
   const paused =
     !autoplay ||
     userPaused ||
@@ -237,7 +241,9 @@ export function MediaSlideshow() {
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${total}`}
               aria-hidden={!active}
-              className="absolute inset-0 transition-transform duration-500 ease-out"
+              className={`absolute inset-0 ${
+                reducedMotion ? '' : 'transition-transform duration-500 ease-out'
+              }`}
               style={{ transform: `translateX(${offset * 100}%)` }}
             >
               <SlideMedia
@@ -281,7 +287,9 @@ export function MediaSlideshow() {
           <div
             key={index}
             className="animate-slide-progress h-full w-full bg-accent"
-            style={{ animationDuration: `${INTERVAL_MS}ms` }}
+            style={
+              { '--slide-progress-duration': `${INTERVAL_MS}ms` } as CSSProperties
+            }
           />
         )}
       </div>

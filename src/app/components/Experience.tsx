@@ -134,7 +134,7 @@ const education = [
   {
     role: 'B.Sc. Electrical and Electronics Engineering',
     org: 'Eastern Mediterranean University, Famagusta, North Cyprus',
-    date: 'Monday, 19th February 2018 – Tuesday, 5th July 2022',
+    date: 'Monday, 19th February 2018 – Wednesday, 3rd July 2024',
     desc: 'Graduated with CGPA 3.14 / 4.00 (Honours). Specialised in circuit design, microcontroller programming, renewable energy systems and engineering simulation (AutoCAD, MATLAB, Multisim). Final year project: a motorised camera slider (Arduino, NEMA 17 stepper motor) that took 2nd place at the university\'s Final Year Project Competition.',
     tags: ['Arduino', 'MATLAB', 'AutoCAD', 'Multisim'],
   },

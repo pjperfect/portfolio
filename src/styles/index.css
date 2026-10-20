@@ -66,7 +66,8 @@ img {
   animation: fadeFloat 3s ease-in-out infinite;
 }
 
-/* Countdown bar under the About slideshow. The duration is set inline to match the timer. */
+/* Countdown bar under the About slideshow. The component sets --slide-progress-duration to
+   match the timer. */
 @keyframes slideProgress {
   from {
     transform: scaleX(0);
@@ -80,6 +81,16 @@ img {
   animation-name: slideProgress;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+  animation-duration: var(--slide-progress-duration, 5000ms);
+}
+/* The blanket reduced-motion rule further down shrinks every animation to 0.01ms, which
+   would leave this bar full from the first moment. It is a thin progress indicator rather
+   than movement, so it keeps its real duration. A class selector outranks the * selector
+   even when both use !important. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-progress {
+    animation-duration: var(--slide-progress-duration, 5000ms) !important;
+  }
 }
 
 .scrollbar-thin::-webkit-scrollbar {
